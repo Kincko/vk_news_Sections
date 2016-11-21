@@ -31,16 +31,6 @@ class ACNewsManager
         return newsArray[section][index]
     }
     
-//    class func model (atIndex index: Int) -> ACNews
-//    {
-//        return newsArray[index]
-//    }
-//    
-//    class func numberOfModels () -> Int
-//    {
-//        return newsArray.count
-//    }
-    
 }
 
 //MARK: загрузка данных из интернета
@@ -55,10 +45,29 @@ extension ACNewsManager
             let postsArray = response["items"].arrayValue
             let usersArray = response["profiles"].arrayValue
             let groupsArray = response["groups"].arrayValue
+            
+            let accountDictionary = NSMutableDictionary()
+            
+            //вытаскивание пользователей
+            for user in usersArray
+            {
+                //дергать по id парсинг ВОТ ТУТ и запихнуть в модель header, который будет accaunt или типа того
+                accountDictionary.setObject(user, forKey: NSString(string: user["uid"].stringValue))
+            }
+            
+            //вместо user объект аккаунт - расширить header (вся инфа) парсинг здесь по ключу
+            
+            //вытаскивание групп
+            for group in groupsArray
+            {
+                accountDictionary.setObject(group, forKey: NSString(string:  "-\(group["gid"].stringValue)"))
+            }
+            
+            
 
             for post in postsArray
             {
-//                let postId = post["post_id"].int64Value
+                let postId = post["post_id"].int64Value
                 let postText = post["text"].stringValue
                 let postSource_id = post["source_id"].int64Value
                 
@@ -73,6 +82,20 @@ extension ACNewsManager
                 let postLikesCount = postLikes["count"]!.int64Value
                 
                 //Парсинг данных для header
+                
+                if let accountData = accountDictionary["\(postSource_id)"] as? JSON
+                {
+                    if postSource_id > 0
+                    {
+                        //ожидаем данные анкеты
+                    }
+                    else
+                    {
+                        //ожидаем данные группы
+                    }
+                }
+                
+                
                 if postSource_id > 0
                 {
                     for user in usersArray
