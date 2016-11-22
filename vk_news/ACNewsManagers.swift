@@ -95,7 +95,6 @@ extension ACNewsManager
                     }
                 }
                 
-                
                 if postSource_id > 0
                 {
                     for user in usersArray

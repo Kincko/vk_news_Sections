@@ -23,6 +23,10 @@
 		894B4EB41DBFD92A006FEF19 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894B4EB31DBFD92A006FEF19 /* SDWebImage.framework */; };
 		894B4EB61DBFD92F006FEF19 /* MWPhotoBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894B4EB51DBFD92F006FEF19 /* MWPhotoBrowser.framework */; };
 		894B4EB81DBFDB12006FEF19 /* VK_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894B4EB71DBFDB12006FEF19 /* VK_ios_sdk.framework */; };
+		895B78FF1DE4B2E100A12DC5 /* ACSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B78FE1DE4B2E100A12DC5 /* ACSource.swift */; };
+		895B79011DE4B48400A12DC5 /* ACMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B79001DE4B48400A12DC5 /* ACMessagesViewController.swift */; };
+		895B79031DE4B49E00A12DC5 /* ACFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B79021DE4B49E00A12DC5 /* ACFriendsViewController.swift */; };
+		895B79051DE4B4D600A12DC5 /* ACAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B79041DE4B4D600A12DC5 /* ACAccountViewController.swift */; };
 		897275231DBFD5B500CD8FC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897275221DBFD5B500CD8FC3 /* AppDelegate.swift */; };
 		897275281DBFD5B500CD8FC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897275261DBFD5B500CD8FC3 /* Main.storyboard */; };
 		8972752D1DBFD5B500CD8FC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8972752B1DBFD5B500CD8FC3 /* LaunchScreen.storyboard */; };
@@ -75,6 +79,10 @@
 		894B4EB31DBFD92A006FEF19 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		894B4EB51DBFD92F006FEF19 /* MWPhotoBrowser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MWPhotoBrowser.framework; path = "Pods/../build/Debug-iphoneos/MWPhotoBrowser/MWPhotoBrowser.framework"; sourceTree = "<group>"; };
 		894B4EB71DBFDB12006FEF19 /* VK_ios_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VK_ios_sdk.framework; path = "Pods/../build/Debug-iphoneos/VK-ios-sdk/VK_ios_sdk.framework"; sourceTree = "<group>"; };
+		895B78FE1DE4B2E100A12DC5 /* ACSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACSource.swift; sourceTree = "<group>"; };
+		895B79001DE4B48400A12DC5 /* ACMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACMessagesViewController.swift; sourceTree = "<group>"; };
+		895B79021DE4B49E00A12DC5 /* ACFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACFriendsViewController.swift; sourceTree = "<group>"; };
+		895B79041DE4B4D600A12DC5 /* ACAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACAccountViewController.swift; sourceTree = "<group>"; };
 		8972751F1DBFD5B500CD8FC3 /* vk_news.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vk_news.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		897275221DBFD5B500CD8FC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		897275271DBFD5B500CD8FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +148,9 @@
 			isa = PBXGroup;
 			children = (
 				469D95EC1DC4EAB7003CFFBA /* ACFeedViewController.swift */,
+				895B79001DE4B48400A12DC5 /* ACMessagesViewController.swift */,
+				895B79021DE4B49E00A12DC5 /* ACFriendsViewController.swift */,
+				895B79041DE4B4D600A12DC5 /* ACAccountViewController.swift */,
 			);
 			name = "newsfeed controllers";
 			sourceTree = "<group>";
@@ -303,6 +314,7 @@
 				89D197B41DE09C410042425C /* ACNewsImage.swift */,
 				89D197B61DE09C7D0042425C /* ACNewsHeader.swift */,
 				89D197B81DE09CF80042425C /* ACNewsFooter.swift */,
+				895B78FE1DE4B2E100A12DC5 /* ACSource.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -515,10 +527,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				895B79011DE4B48400A12DC5 /* ACMessagesViewController.swift in Sources */,
 				89D197B51DE09C410042425C /* ACNewsImage.swift in Sources */,
 				89143A6C1DD24DB400AD4985 /* ACNewsTableViewCell_2.swift in Sources */,
 				89143A771DD4DD9300AD4985 /* ACNewsTableViewCell_1.swift in Sources */,
 				899415BD1DCE0A0E000186E6 /* ACNews.swift in Sources */,
+				895B79031DE4B49E00A12DC5 /* ACFriendsViewController.swift in Sources */,
+				895B79051DE4B4D600A12DC5 /* ACAccountViewController.swift in Sources */,
 				897275231DBFD5B500CD8FC3 /* AppDelegate.swift in Sources */,
 				89D197AF1DE09B4E0042425C /* ACBaseItem.swift in Sources */,
 				89D197B11DE09B7F0042425C /* ACNewsItem.swift in Sources */,
@@ -527,6 +542,7 @@
 				89D197B91DE09CF80042425C /* ACNewsFooter.swift in Sources */,
 				8932D0131DCDEFED00CA29B5 /* Consts.swift in Sources */,
 				469D95EB1DC4D88F003CFFBA /* ACAuthManager.swift in Sources */,
+				895B78FF1DE4B2E100A12DC5 /* ACSource.swift in Sources */,
 				469D95ED1DC4EAB7003CFFBA /* ACFeedViewController.swift in Sources */,
 				89D197AC1DE05D7A0042425C /* ACNewsTableViewCell_99.swift in Sources */,
 				8932D0161DCDF79D00CA29B5 /* API_WRAPPER.swift in Sources */,

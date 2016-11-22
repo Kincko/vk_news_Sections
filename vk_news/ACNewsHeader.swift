@@ -10,14 +10,12 @@ import Foundation
 
 class ACNewsHeader
 {
-    var newsSourceName: String
-    var newsSourceImage: String
+    var source = ACSource
     var cellId: Int
     
-    init(WithCellID cellId: Int, newsSourceName: String, newsSourceImage: String)
+    init(WithCellID cellId: Int, source: ACSource)
     {
-        self.newsSourceName = newsSourceName
-        self.newsSourceImage = newsSourceImage
+        self.source = source
         self.cellId = cellId
     }
 }

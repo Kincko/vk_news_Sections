@@ -13,7 +13,7 @@
         <!--Сообщения-->
         <scene sceneID="eZr-fW-uOv">
             <objects>
-                <viewController id="9Co-7o-MOI" sceneMemberID="viewController">
+                <viewController id="9Co-7o-MOI" customClass="ACMessagesViewController" customModule="vk_news" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RSW-NT-zQY"/>
                         <viewControllerLayoutGuide type="bottom" id="bcm-uQ-1sl"/>
@@ -32,7 +32,7 @@
         <!--Друзья-->
         <scene sceneID="TrJ-Cx-MIw">
             <objects>
-                <viewController id="2vM-Pk-u3n" sceneMemberID="viewController">
+                <viewController id="2vM-Pk-u3n" customClass="ACFriendsViewController" customModule="vk_news" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MUA-fF-g90"/>
                         <viewControllerLayoutGuide type="bottom" id="NdA-dh-LZR"/>
@@ -51,7 +51,7 @@
         <!--Мой профиль-->
         <scene sceneID="s4B-0L-b4r">
             <objects>
-                <viewController id="SwU-f0-OGu" sceneMemberID="viewController">
+                <viewController id="SwU-f0-OGu" customClass="ACAccountViewController" customModule="vk_news" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OD5-a3-G9O"/>
                         <viewControllerLayoutGuide type="bottom" id="89F-Bd-PfQ"/>
