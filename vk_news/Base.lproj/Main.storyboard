@@ -1,47 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SmC-RJ-6E1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="K3C-Sb-C7h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Feed View Controller-->
-        <scene sceneID="okg-hK-hwN">
+        <!--Сообщения-->
+        <scene sceneID="eZr-fW-uOv">
             <objects>
-                <viewController id="SmC-RJ-6E1" customClass="ACFeedViewController" customModule="vk_news" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9Co-7o-MOI" customClass="ACMessagesViewController" customModule="vk_news" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bNc-8h-Rle"/>
-                        <viewControllerLayoutGuide type="bottom" id="cWW-o9-oQa"/>
+                        <viewControllerLayoutGuide type="top" id="RSW-NT-zQY"/>
+                        <viewControllerLayoutGuide type="bottom" id="bcm-uQ-1sl"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MXc-q4-Mv9">
+                    <view key="view" contentMode="scaleToFill" id="bKR-Q8-6dU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Сообщения" image="message" id="gOm-c6-JO4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAV-hd-hiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-722" y="199"/>
+        </scene>
+        <!--Друзья-->
+        <scene sceneID="TrJ-Cx-MIw">
+            <objects>
+                <viewController id="2vM-Pk-u3n" customClass="ACFriendsViewController" customModule="vk_news" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MUA-fF-g90"/>
+                        <viewControllerLayoutGuide type="bottom" id="NdA-dh-LZR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YaL-jJ-VBM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Друзья" image="friends" id="hqo-QA-xbi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sQv-bd-Qn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1534" y="624"/>
+        </scene>
+        <!--Мой профиль-->
+        <scene sceneID="s4B-0L-b4r">
+            <objects>
+                <viewController id="SwU-f0-OGu" customClass="ACAccountViewController" customModule="vk_news" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OD5-a3-G9O"/>
+                        <viewControllerLayoutGuide type="bottom" id="89F-Bd-PfQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="597-NU-PS9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Мой профиль" image="accaunt" id="yap-by-ojX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0u7-9V-7oI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2220" y="624"/>
+        </scene>
+        <!--Новости-->
+        <scene sceneID="DMq-gq-3W3">
+            <objects>
+                <viewController id="peJ-Cy-1kF" customClass="ACFeedViewController" customModule="vk_news" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZYH-Wr-qnk"/>
+                        <viewControllerLayoutGuide type="bottom" id="eeD-Zb-a6U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6kq-Kz-dAC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v8W-A7-o6X">
-                                <rect key="frame" x="-1" y="20" width="375" height="647"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sjj-V9-s76">
+                                <rect key="frame" x="0.0" y="28" width="375" height="590"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="v8W-A7-o6X" firstAttribute="top" secondItem="bNc-8h-Rle" secondAttribute="bottom" id="J6s-k9-FTE"/>
-                            <constraint firstItem="v8W-A7-o6X" firstAttribute="width" secondItem="MXc-q4-Mv9" secondAttribute="width" id="SUn-s1-o4C"/>
-                            <constraint firstItem="cWW-o9-oQa" firstAttribute="top" secondItem="v8W-A7-o6X" secondAttribute="bottom" id="chO-D7-YII"/>
-                            <constraint firstItem="v8W-A7-o6X" firstAttribute="centerX" secondItem="MXc-q4-Mv9" secondAttribute="centerX" constant="-1" id="oBf-dS-n7g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sjj-V9-s76" secondAttribute="trailing" constant="-16" id="3MH-FN-rvH"/>
+                            <constraint firstItem="sjj-V9-s76" firstAttribute="top" secondItem="ZYH-Wr-qnk" secondAttribute="bottom" constant="8" id="HYg-3M-KWy"/>
+                            <constraint firstItem="sjj-V9-s76" firstAttribute="leading" secondItem="6kq-Kz-dAC" secondAttribute="leadingMargin" constant="-16" id="NGb-rp-WTg"/>
+                            <constraint firstItem="eeD-Zb-a6U" firstAttribute="top" secondItem="sjj-V9-s76" secondAttribute="bottom" id="nLG-Rv-f5C"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Новости" image="newsfeed" id="nRv-s1-wKV"/>
                     <connections>
-                        <outlet property="tableView" destination="v8W-A7-o6X" id="6yC-9d-MUf"/>
+                        <outlet property="tableView" destination="sjj-V9-s76" id="1cU-gk-D1s"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uHb-UZ-Hga" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cdc-4X-UsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-924" y="225.33733133433284"/>
+            <point key="canvasLocation" x="-722.39999999999998" y="-485.30734632683664"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="wMN-JE-oMR">
+            <objects>
+                <tabBarController id="K3C-Sb-C7h" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="y1q-8I-bbc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="peJ-Cy-1kF" kind="relationship" relationship="viewControllers" id="xfa-l3-WFV"/>
+                        <segue destination="9Co-7o-MOI" kind="relationship" relationship="viewControllers" id="axA-kE-fIP"/>
+                        <segue destination="2vM-Pk-u3n" kind="relationship" relationship="viewControllers" id="fQ0-YX-KpC"/>
+                        <segue destination="SwU-f0-OGu" kind="relationship" relationship="viewControllers" id="4cs-jz-hzq"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R7f-0u-1y5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1883" y="-156"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="accaunt" width="30" height="30"/>
+        <image name="friends" width="29" height="30"/>
+        <image name="message" width="30" height="30"/>
+        <image name="newsfeed" width="30" height="30"/>
+    </resources>
 </document>
