@@ -10,7 +10,7 @@ import Foundation
 
 class ACNewsHeader
 {
-    var source = ACSource
+    var source: ACSource
     var cellId: Int
     
     init(WithCellID cellId: Int, source: ACSource)

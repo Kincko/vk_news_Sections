@@ -10,9 +10,9 @@ import Foundation
 
 class ACSource
 {
-    var sourceName = String
-    var sourceImage = String
-    var sourceId = Int64
+    var sourceName: String
+    var sourceImage: String
+    var sourceId: Int64
     init (WithSourceID sourceId: Int64, sourceName: String, sourceImage: String)
     {
         self.sourceId = sourceId
