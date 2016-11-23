@@ -12,7 +12,7 @@ class ACMessagesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //Здесь будет реализован экран диалогов
         // Do any additional setup after loading the view.
     }
 
