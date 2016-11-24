@@ -139,7 +139,7 @@ extension API_WRAPPER
             {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
                 let swiftyJSON = JSON(json)
-                print("\n\n ответ - \(swiftyJSON)\n\n ")
+//                print("\n\n ответ - \(swiftyJSON)\n\n ")
                 successBlock(swiftyJSON)
             }
             catch

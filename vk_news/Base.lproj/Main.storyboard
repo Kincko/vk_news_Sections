@@ -74,6 +74,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Мой профиль" image="accaunt" id="yap-by-ojX"/>
+                    <connections>
+                        <outlet property="tableView" destination="9yp-ho-l8r" id="ncJ-hn-tLC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0u7-9V-7oI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

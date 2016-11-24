@@ -31,6 +31,8 @@
 		895B790E1DE611CB00A12DC5 /* ACAccountInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 895B790C1DE611CB00A12DC5 /* ACAccountInfoTableViewCell.xib */; };
 		895B79111DE611DF00A12DC5 /* ACAccountHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B790F1DE611DF00A12DC5 /* ACAccountHeaderTableViewCell.swift */; };
 		895B79121DE611DF00A12DC5 /* ACAccountHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 895B79101DE611DF00A12DC5 /* ACAccountHeaderTableViewCell.xib */; };
+		895B79141DE7510D00A12DC5 /* ACAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B79131DE7510D00A12DC5 /* ACAccountManager.swift */; };
+		895B79161DE7523800A12DC5 /* ACAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B79151DE7523800A12DC5 /* ACAccount.swift */; };
 		897275231DBFD5B500CD8FC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897275221DBFD5B500CD8FC3 /* AppDelegate.swift */; };
 		897275281DBFD5B500CD8FC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897275261DBFD5B500CD8FC3 /* Main.storyboard */; };
 		8972752D1DBFD5B500CD8FC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8972752B1DBFD5B500CD8FC3 /* LaunchScreen.storyboard */; };
@@ -91,6 +93,8 @@
 		895B790C1DE611CB00A12DC5 /* ACAccountInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAccountInfoTableViewCell.xib; sourceTree = "<group>"; };
 		895B790F1DE611DF00A12DC5 /* ACAccountHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACAccountHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		895B79101DE611DF00A12DC5 /* ACAccountHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAccountHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		895B79131DE7510D00A12DC5 /* ACAccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACAccountManager.swift; sourceTree = "<group>"; };
+		895B79151DE7523800A12DC5 /* ACAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACAccount.swift; sourceTree = "<group>"; };
 		8972751F1DBFD5B500CD8FC3 /* vk_news.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vk_news.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		897275221DBFD5B500CD8FC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		897275271DBFD5B500CD8FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 			children = (
 				469D95EA1DC4D88F003CFFBA /* ACAuthManager.swift */,
 				8932D0171DCE080600CA29B5 /* ACNewsManagers.swift */,
+				895B79131DE7510D00A12DC5 /* ACAccountManager.swift */,
 				8932D0151DCDF79D00CA29B5 /* API_WRAPPER.swift */,
 			);
 			name = managers;
@@ -359,6 +364,7 @@
 				89D197B61DE09C7D0042425C /* ACNewsHeader.swift */,
 				89D197B81DE09CF80042425C /* ACNewsFooter.swift */,
 				895B78FE1DE4B2E100A12DC5 /* ACSource.swift */,
+				895B79151DE7523800A12DC5 /* ACAccount.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -579,12 +585,14 @@
 				89143A771DD4DD9300AD4985 /* ACNewsTableViewCell_1.swift in Sources */,
 				899415BD1DCE0A0E000186E6 /* ACNews.swift in Sources */,
 				895B79031DE4B49E00A12DC5 /* ACFriendsViewController.swift in Sources */,
+				895B79141DE7510D00A12DC5 /* ACAccountManager.swift in Sources */,
 				895B79051DE4B4D600A12DC5 /* ACAccountViewController.swift in Sources */,
 				897275231DBFD5B500CD8FC3 /* AppDelegate.swift in Sources */,
 				89D197AF1DE09B4E0042425C /* ACBaseItem.swift in Sources */,
 				89D197B11DE09B7F0042425C /* ACNewsItem.swift in Sources */,
 				895B79111DE611DF00A12DC5 /* ACAccountHeaderTableViewCell.swift in Sources */,
 				89143A7B1DD4DDA400AD4985 /* ACNewsTableViewCell_3.swift in Sources */,
+				895B79161DE7523800A12DC5 /* ACAccount.swift in Sources */,
 				89D197B71DE09C7D0042425C /* ACNewsHeader.swift in Sources */,
 				89D197B91DE09CF80042425C /* ACNewsFooter.swift in Sources */,
 				895B790D1DE611CB00A12DC5 /* ACAccountInfoTableViewCell.swift in Sources */,

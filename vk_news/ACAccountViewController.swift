@@ -8,28 +8,52 @@
 
 import UIKit
 
-class ACAccountViewController: UIViewController {
+private let kpostsCellXIBName_41 = "ACAccountHeaderTableViewCell"
+private let kPostsCellIndentifier_41 = "ACAccountHeaderCellIndentifier"
 
-    override func viewDidLoad() {
+class ACAccountViewController: UIViewController
+{
+    @IBOutlet weak var tableView: UITableView!
+}
+    
+//MARK: - жизненный цикл
+extension ACAccountViewController
+{
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.tableView.register(UINib(nibName: kpostsCellXIBName_41, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier_41)
+        
+        self.tableView.dataSource = self
+        
+        ACAccountManager.getAccountItems(success: {
+            DispatchQueue.main.async
+            {
+                self.tableView.reloadData()
+            }
+        }) {( errorCode ) in
+        }
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//MARK: реализация процедуры интерфейса UITableViewDataSource
+extension ACAccountViewController: UITableViewDataSource
+{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return ACAccountManager.getNumberOfCells()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let model = ACAccountManager.getCellModel(atIndex: indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier_41, for: indexPath) as! ACAccountHeaderTableViewCell
+        cell.configureSelf(withDataModel: model)
+        return cell
     }
-    */
-
 }
+
+
+
+
+

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 private let kpostsCellXIBName_1 = "ACNewsTableViewCell_1"
 private let kPostsCellIndentifier_1 = "kNewsCellIdentifier_1"
 

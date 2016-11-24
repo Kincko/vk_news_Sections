@@ -7,18 +7,44 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ACAccountHeaderTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
+    @IBOutlet weak var accountAvatar: UIImageView!
+    @IBOutlet weak var accountFullName: UILabel!
+    @IBOutlet weak var accountBDate: UILabel!
+    @IBOutlet weak var accountCityName: UILabel!
+    @IBOutlet weak var accountFriendsCount: UILabel!
+    @IBOutlet weak var accountSubsCount: UILabel!
+    @IBOutlet weak var accountPhotoCount: UILabel!
+    @IBOutlet weak var accountGroupsCount: UILabel!
+    
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
-        // Initialization code
-    }
+        accountAvatar.layer.cornerRadius = 40
+        accountAvatar.layer.masksToBounds = true
+    }    
+}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+//MARK: самодержавный конфигуратор ячеечки 
+extension ACAccountHeaderTableViewCell
+{
 
-        // Configure the view for the selected state
+    func configureSelf (withDataModel model: ACAccount)
+    {
+    
+        let fullName = model.firstName + " " + model.lastName
+        accountFullName.text = fullName
+        accountBDate.text = model.bDate
+        accountCityName.text = model.cityName
+        accountFriendsCount.text = model.counters["friends"] as? String
+        accountSubsCount.text = model.counters["subs"] as? String
+        accountPhotoCount.text = model.counters["photo"] as? String
+        accountGroupsCount.text = model.counters["groups"] as? String
+        accountAvatar.sd_setImage(with: NSURL(string: model.avatarURL) as! URL)
+    
     }
     
 }
