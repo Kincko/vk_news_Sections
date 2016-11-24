@@ -99,6 +99,7 @@ extension ACAuthManager
         if let token = UserDefaults.standard.object(forKey: "X-Access-Token")
         {
             return token as! String
+            print("токен \(token)")
         }
         
         return ""

@@ -8,28 +8,99 @@
 
 import UIKit
 
-class ACMessagesViewController: UIViewController {
+private let kpostsCellXIBName = "ACDialogTableViewCell"
+private let kPostsCellIndentifier = "kPostsCellIdentifier"
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //Здесь будет реализован экран диалогов
-        // Do any additional setup after loading the view.
-    }
+private let kpostsCellXIBName1 = "ACDialogNoReadTableViewCell"
+private let kPostsCellIndentifier1 = "kPostsCellIdentifier1"
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+class ACMessagesViewController: UIViewController
+{
+    @IBOutlet weak var tableView: UITableView!
+}
+
+//MARK: - жизненный цикл
+extension ACMessagesViewController
+{
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        authorize()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        self.tableView.register(UINib(nibName: kpostsCellXIBName, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier)
+        self.tableView.register(UINib(nibName: kpostsCellXIBName1, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier1)
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
-    */
+}
 
+//MARK: - авторизация
+extension ACMessagesViewController
+{
+    func authorize ()
+    {
+        ACAuthManager.sharedInstance.login(withUnderlayController: self, success: {
+            
+            self.getDialogs()
+            
+            }, failure: {
+                
+        })
+    }
+}
+
+//MARK:получение данных
+extension ACMessagesViewController
+{
+    func getDialogs()
+    {
+        ACDialogManager.getMDialog(withCount: 10, success: {
+            DispatchQueue.main.async
+                {
+                    self.tableView.reloadData()
+            }
+        }) { (errorCode) in
+            
+        }
+    }
+}
+
+//MARK: реализация процедуры интерфейса UITableViewDataSource
+extension ACMessagesViewController: UITableViewDataSource, UITableViewDelegate
+{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return ACDialogManager.getNumberOfCells()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let model = ACDialogManager.model(atIndex: indexPath.row)
+        if model.read == 1
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier, for: indexPath) as! ACDialogTableViewCell
+            cell.configureSelf(withDataModel: model)
+            return cell
+        }
+        else
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier1, for: indexPath) as! ACDialogNoReadTableViewCell
+            cell.configureSelf(withDataModel: model)
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 100.0
+    }
+    
 }

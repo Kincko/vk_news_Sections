@@ -17,12 +17,16 @@ class Const
         class Scripts
         {
             static let kMethod = "newsfeed.get"
+            static let kMethodMessage = "messages.getDialogs"
+            static let kMethodUser = "users.get"
         }
         
         class Arguments
         {
             static let kFilters : NSString = "filters"
             static let kCount : NSString = "count"
+            static let kUser : NSString = "user_ids"
+            static let kFields : NSString = "fields"
             static let kAccessToken: NSString = "access_token"
         }
     }

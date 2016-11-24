@@ -53,6 +53,7 @@ extension API_WRAPPER
         argsDictionary.setObject("post", forKey: Const.URLConst.Arguments.kFilters)
         argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
         
+        
         let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethod, withParametrs: argsDictionary)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
@@ -61,6 +62,64 @@ extension API_WRAPPER
         task.resume()
     }
 }
+
+
+//MARK получение списка диалогов
+extension API_WRAPPER
+{
+    class func getDialogs (withCount count: Int, successBlock: @escaping (_ jsonResponce: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void)
+    {
+        let argsDictionary = NSMutableDictionary ()
+        
+        argsDictionary.setObject("\(count)", forKey: Const.URLConst.Arguments.kCount)
+        //argsDictionary.setObject("post", forKey: Const.URLConst.Arguments.kFilters)
+        argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
+        
+        let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodMessage, withParametrs: argsDictionary)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)
+        }
+        task.resume()
+    }
+}
+
+//MARK получение данных пользователей
+extension API_WRAPPER
+{
+    class func getUsers (withUsers users:[String], successBlock: @escaping (_ jsonResponce: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void)
+    {
+        let argsDictionary = NSMutableDictionary ()
+        
+        var allUser = ""
+        
+        for i in 0..<users.count
+        {
+            let user = users[i]
+            if (i < users.count - 1)
+            {
+                allUser += "\(user),"
+            }
+            else
+            {
+                allUser += "\(user)"
+            }
+        }
+        
+        argsDictionary.setObject("\(allUser)", forKey: Const.URLConst.Arguments.kUser)
+        //argsDictionary.setObject("post", forKey: Const.URLConst.Arguments.kFilters)
+        argsDictionary.setObject("photo_100", forKey: Const.URLConst.Arguments.kFields)
+        
+        let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodUser, withParametrs: argsDictionary)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)
+        }
+        task.resume()
+    }
+}
+
+
 
 //MARK: общий обработчик ответов
 extension API_WRAPPER

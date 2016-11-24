@@ -11,6 +11,12 @@
 		469D95EB1DC4D88F003CFFBA /* ACAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D95EA1DC4D88F003CFFBA /* ACAuthManager.swift */; };
 		469D95ED1DC4EAB7003CFFBA /* ACFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D95EC1DC4EAB7003CFFBA /* ACFeedViewController.swift */; };
 		46B392781DCDEC3C0078ADFC /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B392771DCDEC3C0078ADFC /* SwiftyJSON.swift */; };
+		840B8C841DE5CB98006D548D /* ACDialogManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B8C831DE5CB98006D548D /* ACDialogManagers.swift */; };
+		840B8C861DE5CC19006D548D /* ACDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B8C851DE5CC19006D548D /* ACDialog.swift */; };
+		843DE5F41DE71BB300644639 /* ACDialogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DE5F21DE71BB300644639 /* ACDialogTableViewCell.swift */; };
+		843DE5F51DE71BB300644639 /* ACDialogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843DE5F31DE71BB300644639 /* ACDialogTableViewCell.xib */; };
+		84FE95591DE778A3004CA56C /* ACDialogNoReadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE95571DE778A3004CA56C /* ACDialogNoReadTableViewCell.swift */; };
+		84FE955A1DE778A3004CA56C /* ACDialogNoReadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FE95581DE778A3004CA56C /* ACDialogNoReadTableViewCell.xib */; };
 		89143A6C1DD24DB400AD4985 /* ACNewsTableViewCell_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89143A6A1DD24DB400AD4985 /* ACNewsTableViewCell_2.swift */; };
 		89143A6D1DD24DB400AD4985 /* ACNewsTableViewCell_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89143A6B1DD24DB400AD4985 /* ACNewsTableViewCell_2.xib */; };
 		89143A771DD4DD9300AD4985 /* ACNewsTableViewCell_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89143A751DD4DD9300AD4985 /* ACNewsTableViewCell_1.swift */; };
@@ -67,6 +73,12 @@
 		469D95EC1DC4EAB7003CFFBA /* ACFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACFeedViewController.swift; sourceTree = "<group>"; };
 		46B392771DCDEC3C0078ADFC /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		77847D1265890A7D1BE8A520 /* Pods-vk_news.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vk_news.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vk_news/Pods-vk_news.debug.xcconfig"; sourceTree = "<group>"; };
+		840B8C831DE5CB98006D548D /* ACDialogManagers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACDialogManagers.swift; sourceTree = "<group>"; };
+		840B8C851DE5CC19006D548D /* ACDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACDialog.swift; sourceTree = "<group>"; };
+		843DE5F21DE71BB300644639 /* ACDialogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACDialogTableViewCell.swift; sourceTree = "<group>"; };
+		843DE5F31DE71BB300644639 /* ACDialogTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACDialogTableViewCell.xib; sourceTree = "<group>"; };
+		84FE95571DE778A3004CA56C /* ACDialogNoReadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACDialogNoReadTableViewCell.swift; sourceTree = "<group>"; };
+		84FE95581DE778A3004CA56C /* ACDialogNoReadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACDialogNoReadTableViewCell.xib; sourceTree = "<group>"; };
 		89143A6A1DD24DB400AD4985 /* ACNewsTableViewCell_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNewsTableViewCell_2.swift; sourceTree = "<group>"; };
 		89143A6B1DD24DB400AD4985 /* ACNewsTableViewCell_2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACNewsTableViewCell_2.xib; sourceTree = "<group>"; };
 		89143A751DD4DD9300AD4985 /* ACNewsTableViewCell_1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNewsTableViewCell_1.swift; sourceTree = "<group>"; };
@@ -172,6 +184,7 @@
 			children = (
 				469D95EA1DC4D88F003CFFBA /* ACAuthManager.swift */,
 				8932D0171DCE080600CA29B5 /* ACNewsManagers.swift */,
+				840B8C831DE5CB98006D548D /* ACDialogManagers.swift */,
 				8932D0151DCDF79D00CA29B5 /* API_WRAPPER.swift */,
 			);
 			name = managers;
@@ -196,9 +209,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		843DE5F11DE71B3700644639 /* DialogTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				843DE5F21DE71BB300644639 /* ACDialogTableViewCell.swift */,
+				843DE5F31DE71BB300644639 /* ACDialogTableViewCell.xib */,
+				84FE95571DE778A3004CA56C /* ACDialogNoReadTableViewCell.swift */,
+				84FE95581DE778A3004CA56C /* ACDialogNoReadTableViewCell.xib */,
+			);
+			name = DialogTableViewCell;
+			sourceTree = "<group>";
+		};
 		89143A681DD24D8700AD4985 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				843DE5F11DE71B3700644639 /* DialogTableViewCell */,
 				89143A691DD24D9700AD4985 /* NewsTableViewCells */,
 			);
 			name = "Custom Views";
@@ -308,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				899415BC1DCE0A0E000186E6 /* ACNews.swift */,
+				840B8C851DE5CC19006D548D /* ACDialog.swift */,
 				89D197AE1DE09B4E0042425C /* ACBaseItem.swift */,
 				89D197B01DE09B7F0042425C /* ACNewsItem.swift */,
 				89D197B21DE09BF40042425C /* ACNewsText.swift */,
@@ -408,7 +434,7 @@
 				TargetAttributes = {
 					8972751E1DBFD5B500CD8FC3 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = GB857ZG62U;
+						DevelopmentTeam = 8TMX2976U8;
 						ProvisioningStyle = Automatic;
 					};
 					897275321DBFD5B500CD8FC3 = {
@@ -449,10 +475,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				89143A6D1DD24DB400AD4985 /* ACNewsTableViewCell_2.xib in Resources */,
+				843DE5F51DE71BB300644639 /* ACDialogTableViewCell.xib in Resources */,
 				8972752D1DBFD5B500CD8FC3 /* LaunchScreen.storyboard in Resources */,
 				89D197AD1DE05D7A0042425C /* ACNewsTableViewCell_99.xib in Resources */,
 				89143A781DD4DD9300AD4985 /* ACNewsTableViewCell_1.xib in Resources */,
 				89D197A81DE058400042425C /* Assets.xcassets in Resources */,
+				84FE955A1DE778A3004CA56C /* ACDialogNoReadTableViewCell.xib in Resources */,
 				89143A7C1DD4DDA400AD4985 /* ACNewsTableViewCell_3.xib in Resources */,
 				897275281DBFD5B500CD8FC3 /* Main.storyboard in Resources */,
 			);
@@ -532,18 +560,22 @@
 				89143A6C1DD24DB400AD4985 /* ACNewsTableViewCell_2.swift in Sources */,
 				89143A771DD4DD9300AD4985 /* ACNewsTableViewCell_1.swift in Sources */,
 				899415BD1DCE0A0E000186E6 /* ACNews.swift in Sources */,
+				840B8C861DE5CC19006D548D /* ACDialog.swift in Sources */,
 				895B79031DE4B49E00A12DC5 /* ACFriendsViewController.swift in Sources */,
 				895B79051DE4B4D600A12DC5 /* ACAccountViewController.swift in Sources */,
 				897275231DBFD5B500CD8FC3 /* AppDelegate.swift in Sources */,
 				89D197AF1DE09B4E0042425C /* ACBaseItem.swift in Sources */,
 				89D197B11DE09B7F0042425C /* ACNewsItem.swift in Sources */,
 				89143A7B1DD4DDA400AD4985 /* ACNewsTableViewCell_3.swift in Sources */,
+				843DE5F41DE71BB300644639 /* ACDialogTableViewCell.swift in Sources */,
 				89D197B71DE09C7D0042425C /* ACNewsHeader.swift in Sources */,
 				89D197B91DE09CF80042425C /* ACNewsFooter.swift in Sources */,
 				8932D0131DCDEFED00CA29B5 /* Consts.swift in Sources */,
 				469D95EB1DC4D88F003CFFBA /* ACAuthManager.swift in Sources */,
+				840B8C841DE5CB98006D548D /* ACDialogManagers.swift in Sources */,
 				895B78FF1DE4B2E100A12DC5 /* ACSource.swift in Sources */,
 				469D95ED1DC4EAB7003CFFBA /* ACFeedViewController.swift in Sources */,
+				84FE95591DE778A3004CA56C /* ACDialogNoReadTableViewCell.swift in Sources */,
 				89D197AC1DE05D7A0042425C /* ACNewsTableViewCell_99.swift in Sources */,
 				8932D0161DCDF79D00CA29B5 /* API_WRAPPER.swift in Sources */,
 				46B392781DCDEC3C0078ADFC /* SwiftyJSON.swift in Sources */,
@@ -701,7 +733,7 @@
 			baseConfigurationReference = 77847D1265890A7D1BE8A520 /* Pods-vk_news.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GB857ZG62U;
+				DEVELOPMENT_TEAM = 8TMX2976U8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
@@ -711,7 +743,7 @@
 				INFOPLIST_FILE = vk_news/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "vvz.vk-news";
+				PRODUCT_BUNDLE_IDENTIFIER = Nik.vk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -722,7 +754,7 @@
 			baseConfigurationReference = 3C9E787D0B5BBC523D6722F8 /* Pods-vk_news.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GB857ZG62U;
+				DEVELOPMENT_TEAM = 8TMX2976U8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
@@ -732,7 +764,7 @@
 				INFOPLIST_FILE = vk_news/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "vvz.vk-news";
+				PRODUCT_BUNDLE_IDENTIFIER = Nik.vk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
