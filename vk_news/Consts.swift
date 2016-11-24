@@ -17,18 +17,19 @@ class Const
         class Scripts
         {
             static let kMethod = "newsfeed.get"
+            static let kMethodForAccountInfo = "users.get"
+            static let kMethodForWall = "wall.get"
+            static let kMethodForCity = "database.getCitiesById"
         }
         
         class Arguments
         {
             static let kFilters : NSString = "filters"
             static let kCount : NSString = "count"
+            static let kFields: NSString = "fields"
+            static let kExtended: NSString = "extended"
+            static let kCityId: NSString = "city_ids"
             static let kAccessToken: NSString = "access_token"
         }
-    }
-    
-    class AccessToken
-    {
-       static var accessToken: NSString = ""
     }
 }

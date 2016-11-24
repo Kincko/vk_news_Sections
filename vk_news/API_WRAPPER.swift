@@ -62,6 +62,67 @@ extension API_WRAPPER
     }
 }
 
+//MARK: получение информации Аккаунта
+extension API_WRAPPER
+{
+    class func getAccountInfo (successBlock: @escaping (_ jsonResponse: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void)
+    {
+        let argsDictionary = NSMutableDictionary ()
+        
+        argsDictionary.setObject("bdate,photo_100,city,counters", forKey: Const.URLConst.Arguments.kFields)
+        argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
+        
+        let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodForAccountInfo, withParametrs: argsDictionary)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)
+        }
+        
+        task.resume()
+    }
+}
+
+//MARK: получение информации со стены
+extension API_WRAPPER
+{
+    class func getWall (successBlock: @escaping (_ jsonResponse: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void)
+    {
+        let argsDictionary = NSMutableDictionary ()
+        
+        argsDictionary.setObject("name,first_name,last_name,photo_100", forKey: Const.URLConst.Arguments.kFields)
+        argsDictionary.setObject("1", forKey: Const.URLConst.Arguments.kExtended)
+        argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
+        
+        let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodForWall, withParametrs: argsDictionary)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)
+        }
+        
+        task.resume()
+    }
+}
+
+//MARK: получение название города (Дуров, верни title по полю city!)
+extension API_WRAPPER
+{
+    class func getCityTitle (forCityId cityId: Int64, successBlock: @escaping (_ jsonResponse: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void)
+    {
+        let argsDictionary = NSMutableDictionary ()
+        
+        argsDictionary.setObject("\(cityId)", forKey: Const.URLConst.Arguments.kCityId)
+        argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
+        
+        let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodForCity, withParametrs: argsDictionary)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)
+        }
+        
+        task.resume()
+    }
+}
+
 //MARK: общий обработчик ответов
 extension API_WRAPPER
 {
