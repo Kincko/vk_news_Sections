@@ -84,17 +84,29 @@ extension ACMessagesViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let model = ACDialogManager.model(atIndex: indexPath.row)
-        if model.read == 1
+        if model.read == 1     //Если прочитано
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier, for: indexPath) as! ACDialogTableViewCell
             cell.configureSelf(withDataModel: model)
+            cell.backgroundLabel(color: UIColor.clear)
             return cell
         }
         else
         {
-            let cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier1, for: indexPath) as! ACDialogNoReadTableViewCell
-            cell.configureSelf(withDataModel: model)
-            return cell
+            if model.out == 0    //Если не прочитано
+            {
+                let cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier1, for: indexPath) as! ACDialogNoReadTableViewCell
+                cell.configureSelf(withDataModel: model)
+                return cell
+            }
+            else   //Если отправлено мной и еще не прочитали
+            {
+                let cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier, for: indexPath) as! ACDialogTableViewCell
+                cell.configureSelf(withDataModel: model)
+                cell.backgroundLabel(color: UIColor.groupTableViewBackground)
+                print("Сообщение: \(model.message)")
+                return cell
+            }
         }
     }
     

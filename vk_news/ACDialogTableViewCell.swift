@@ -38,4 +38,11 @@ extension ACDialogTableViewCell
         Name.text = model.name
         Message.text = model.message
     }
+    
+    func backgroundLabel(color:UIColor)
+    {
+        Message.backgroundColor = color
+    }
 }
+
+

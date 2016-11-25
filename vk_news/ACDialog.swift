@@ -15,15 +15,17 @@ class ACDialog
     var photoURL:String
     var name:String
     var read:Int
+    var out:Int
     
     
-    init(title:String,message:String,photoURL:String,name:String,read:Int)
+    init(title:String,message:String,photoURL:String,name:String,read:Int,out:Int)
     {
         self.title = title
         self.message = message
         self.photoURL = photoURL
         self.name = name
         self.read = read
+        self.out = out
     }
     
     

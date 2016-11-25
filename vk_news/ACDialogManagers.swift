@@ -32,70 +32,90 @@ extension ACDialogManager
         API_WRAPPER.getDialogs(withCount: count, successBlock: { (jsonResponse) in
             
             let jsonArray = jsonResponse["response"].arrayValue
-            
             var arrayUser = [String]()
+            var accountArray = [JSON]()
+            
+            //Массив аакаунтов для запроса доп. информации
             for dialog in jsonArray
             {
                 let uid = dialog["uid"].int64Value
                 arrayUser.append("\(uid)")
             }
             
-            var accountArray = [JSON]()
             
             API_WRAPPER.getUsers(withUsers: arrayUser, successBlock: { (jsonResponse) in
                 
                 accountArray = jsonResponse["response"].arrayValue
-                //for user in accountArray
-                //{
-                //    let name = user["first_name"].stringValue + " " + user["last_name"].stringValue
-                //    print("Элемент массива: \(name)")
-                //}
                 
                 for dialog in jsonArray
                 {
                     let uid = dialog["uid"].int64Value
                     let chatID = dialog["chat_id"].int64Value
                     let read = dialog["read_state"].intValue
+                    var photoURL = ""
+                    var name = ""
+                    
+                    //Если есть пустой элемент, пропускаем его
                     if uid == 0
                     {
                         continue
                     }
                     
-                    var photoURL = ""
-                    var name = ""
                     
-                if chatID == 0
-                {
-                    for user in accountArray
+                    //Проверяем беседа или обычный диалог
+                    if chatID == 0
                     {
-                        if user["uid"].int64Value == uid
+                        for user in accountArray
                         {
-                            name = user["first_name"].stringValue + " " + user["last_name"].stringValue
-                            photoURL = user["photo_100"].stringValue
+                            if user["uid"].int64Value == uid
+                            {
+                                name = user["first_name"].stringValue + " " + user["last_name"].stringValue
+                                photoURL = user["photo_100"].stringValue
+                            }
                         }
                     }
-                }
-                else
-                {
-                    name = dialog["title"].stringValue
-                    photoURL = dialog["photo_100"].stringValue
-                }
+                    else
+                    {
+                        name = dialog["title"].stringValue
+                        photoURL = dialog["photo_100"].stringValue
+                    }
                     
                     let title = dialog["title"].stringValue
-                    let message = dialog["body"].stringValue
+                    var message = dialog["body"].stringValue
+                    let out = dialog["out"].intValue
                     
-                    
-                    let model = ACDialog(title: title, message: message, photoURL: photoURL, name: name, read: read)
+                    //Если нет сообщения, значит там вложение (запись, фото, видео)
+                    if message == ""
+                    {
+                        let attachment = dialog["attachment"].dictionary
+                        
+                        let type = attachment?["type"]?.stringValue
+                        
+                        if type == "wall"
+                        {
+                            message = "Запись"
+                        }
+                        
+                        if type == "photo"
+                        {
+                            message = "Фотография"
+                        }
+                        
+                        if type == "video"
+                        {
+                            message = "Видеозапись"
+                        }
+                        
+                        
+                    }
+                
+                    let model = ACDialog(title: title, message: message, photoURL: photoURL, name: name, read: read, out: out)
                     dialogArray.append(model)
                 }
                 
-                success()
+                    success()
                 
-            }, failureBlock: failure)
-            
-            
-            
-            
+                }, failureBlock: failure)
             
             }, failureBlock: failure)
     
