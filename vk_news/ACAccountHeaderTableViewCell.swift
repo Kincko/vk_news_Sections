@@ -28,23 +28,24 @@ class ACAccountHeaderTableViewCell: UITableViewCell {
     }    
 }
 
-//MARK: самодержавный конфигуратор ячеечки 
+//MARK: конфигуратор ячеечки
 extension ACAccountHeaderTableViewCell
 {
 
-    func configureSelf (withDataModel model: ACAccount)
+    func configureSelf (withDataModel model: ACWallPost)
     {
     
-        let fullName = model.firstName + " " + model.lastName
+        let propModel = model.content[0] as! ACAccount
+        
+        let fullName = propModel.firstName + " " + propModel.lastName
         accountFullName.text = fullName
-        accountBDate.text = model.bDate
-        accountCityName.text = model.cityName
-        accountFriendsCount.text = model.counters["friends"] as? String
-        accountSubsCount.text = model.counters["subs"] as? String
-        accountPhotoCount.text = model.counters["photo"] as? String
-        accountGroupsCount.text = model.counters["groups"] as? String
-        accountAvatar.sd_setImage(with: NSURL(string: model.avatarURL) as! URL)
-    
+        accountBDate.text = propModel.bDate
+        accountCityName.text = propModel.cityName
+        accountFriendsCount.text = propModel.counters["friends"] as? String
+        accountSubsCount.text = propModel.counters["subs"] as? String
+        accountPhotoCount.text = propModel.counters["photos"] as? String
+        accountGroupsCount.text = propModel.counters["groups"] as? String
+        accountAvatar.sd_setImage(with: NSURL(string: propModel.avatarURL) as! URL)
     }
     
 }

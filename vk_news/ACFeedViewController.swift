@@ -129,22 +129,8 @@ extension ACFeedViewController: UITableViewDataSource, UITableViewDelegate
             (cell as! ACNewsTableViewCell_99).configureSelf(withDataModel: model)
         }
         
-        
         return cell as! UITableViewCell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-//    {
-//        let model = ACNewsManager.getCellModel(atSection: indexPath.section, andIndex: indexPath.row)
-//        var height: CGFloat = 0
-//        
-//        if model.postTypeId == 1
-//        {
-//            height = 63
-//        }
-//        
-//        return height
-//    }
 }
 
 

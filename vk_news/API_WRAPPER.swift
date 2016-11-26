@@ -31,7 +31,7 @@ class API_WRAPPER
             }
         }
         
-        print("\n\n\n строка запроса - \(requestString)\n\n\n")
+//        print("\n\n\n строка запроса - \(requestString)\n\n\n")
         
         let request = NSMutableURLRequest ()
         

@@ -162,25 +162,7 @@ extension ACNewsManager
                 
                 //добавление новости в массив новостей
                 newsArray.append(models)
-                
-//                if postText != "" && postImage == nil
-//                {
-//                    model = ACNews(fromSourceName: postSourceName, postSourcePhoto: postSourcePhoto, postText: postText, postImage: "", postTypeId: 1)
-//                    newsArray.append(model)
-//                }
-//                
-//                if postText == "" && postImage != nil
-//                {
-//                    model = ACNews(fromSourceName: postSourceName, postSourcePhoto: postSourcePhoto, postText: postText, postImage: postImage!, postTypeId: 2)
-//                    newsArray.append(model)
-//                }
-//                
-//                if postText != "" && postImage != nil
-//                {
-//                    model = ACNews(fromSourceName: postSourceName, postSourcePhoto: postSourcePhoto, postText: postText, postImage: postImage!, postTypeId: 3)
-//                    newsArray.append(model)
-//                }
-                
+
             }
             
             success()
