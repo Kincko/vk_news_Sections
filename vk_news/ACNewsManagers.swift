@@ -38,6 +38,8 @@ extension ACNewsManager
 {
     class func getMNews (withCount count: Int, success: @escaping () -> Void, failure: @escaping (_ errorCode: Int) -> Void) -> Void
     {
+        if newsArray.count == 0
+        {
         API_WRAPPER.getNews(withCount: count, successBlock: { (jsonResponse) in
             
             let response = jsonResponse["response"]
@@ -169,5 +171,6 @@ extension ACNewsManager
             
             
                         }, failureBlock: failure)
+    }
     }
 }

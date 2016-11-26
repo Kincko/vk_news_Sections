@@ -10,6 +10,7 @@ import Foundation
 
 class ACAccountManager
 {
+    
     static var accountItems = [ACBaseItem]()
     
     class func getNumberOfSections () -> Int
@@ -32,9 +33,15 @@ class ACAccountManager
 //MARK: загрузка с божьей помощью данных из греховного интернета для богомерзкой шапки профиля
 extension ACAccountManager
 {
-
+    
+    
+    
     class func getAccountItems (success: @escaping () -> Void, failure: @escaping (_ errorCode: Int) -> Void) -> Void
     {
+        
+        if accountItems.count == 0
+        {
+        
         API_WRAPPER.getAccountInfo(successBlock: { (jsonResponse) in
             
             let rawresponse = jsonResponse["response"].arrayValue
@@ -78,8 +85,6 @@ extension ACAccountManager
                 }
                 
                 var content = [ACBaseItem]()
-                
-                print("количество в цикле\(wallPosts.count)")
                 
                 for i in 1..<wallPosts.count
                 {
@@ -179,5 +184,6 @@ extension ACAccountManager
             }, failureBlock: failure)
             
         }, failureBlock: failure)
+        }
     }
 }
