@@ -11,17 +11,20 @@ import UIKit
 private let kpostsCellXIBName_41 = "ACAccountHeaderTableViewCell"
 private let kPostsCellIndentifier_41 = "ACAccountHeaderCellIndentifier"
 
-private let kpostsCellXIBName_42 = "ACNewsTableViewCell_1"
-private let kPostsCellIndentifier_42 = "kNewsCellIdentifier_1"
+private let kpostsCellXIBName_42 = "ACWallHeaderTableViewCell"
+private let kPostsCellIndentifier_42 = "kNewsCellIdentifier_42"
 
-private let kpostsCellXIBName_44 = "ACNewsTableViewCell_2"
-private let kPostsCellIndentifier_44 = "kNewsCellIdentifier_2"
+private let kpostsCellXIBName_43 = "ACWallCopySourceTableViewCell"
+private let kPostsCellIndentifier_43 = "kNewsCellIdentifier_43"
 
-private let kpostsCellXIBName_45 = "ACNewsTableViewCell_3"
-private let kPostsCellIndentifier_45 = "kNewsCellIdentifier_3"
+private let kpostsCellXIBName_44 = "ACWallTextTableViewCell"
+private let kPostsCellIndentifier_44 = "kNewsCellIdentifier_44"
 
-private let kpostsCellXIBName_46 = "ACNewsTableViewCell_99"
-private let kPostsCellIndentifier_46 = "kNewsCellIdentifier_99"
+private let kpostsCellXIBName_45 = "ACImageTableViewCell"
+private let kPostsCellIndentifier_45 = "kNewsCellIdentifier_45"
+
+private let kpostsCellXIBName_46 = "ACFooterTableViewCell"
+private let kPostsCellIndentifier_46 = "kNewsCellIdentifier_46"
 
 private let kpostsCellXIBName_100 = "ACUnderCTableViewCell"
 private let kPostsCellIndentifier_100 = "kNewsCellIdentifier_100"
@@ -47,6 +50,7 @@ extension ACAccountViewController
         
         self.tableView.register(UINib(nibName: kpostsCellXIBName_41, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier_41)
         self.tableView.register(UINib(nibName: kpostsCellXIBName_42, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier_42)
+        self.tableView.register(UINib(nibName: kpostsCellXIBName_43, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier_43)
         self.tableView.register(UINib(nibName: kpostsCellXIBName_44, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier_44)
         self.tableView.register(UINib(nibName: kpostsCellXIBName_45, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier_45)
         self.tableView.register(UINib(nibName: kpostsCellXIBName_46, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier_46)
@@ -101,27 +105,62 @@ extension ACAccountViewController: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        print("\(ACAccountManager.getNumberOfCells(atSection: section))")
         return ACAccountManager.getNumberOfCells(atSection: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let model = ACAccountManager.getCellModel(atIndex: indexPath
-        .section)
+        let model = ACAccountManager.getCellModel(atIndex: indexPath.section)
         
         var cell: AnyObject!
-        
-        print("\(model.postId)")
         
         if model.postId == "info"
         {
             cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier_41, for: indexPath) as! ACAccountHeaderTableViewCell
             (cell as! ACAccountHeaderTableViewCell).configureSelf(withDataModel: model)
+//            print("ячейка info")
         }
-        else
+        
+        let cellModels = model.content
+        
+        let cellModel = cellModels[indexPath.row]
+        
+        if cellModel is ACCellHeader
         {
-            cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier_100, for: indexPath) as! ACUnderCTableViewCell
+            cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier_42, for: indexPath) as! ACWallHeaderTableViewCell
+            (cell as! ACWallHeaderTableViewCell).configureSelf(withDataModel: cellModel as! ACCellHeader)
+//            print("ячейка хедер")
         }
+            
+        if cellModel is ACWallPostCopyHeader
+        {
+            cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier_43, for: indexPath) as! ACWallCopySourceTableViewCell
+            (cell as! ACWallCopySourceTableViewCell).configureSelf(withDataModel: cellModel as! ACWallPostCopyHeader)
+//            print("ячейка источник")
+        }
+            
+        if cellModel is ACCellText
+        {
+            cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier_44, for: indexPath) as! ACWallTextTableViewCell
+            (cell as! ACWallTextTableViewCell).configureSelf(withDataModel: cellModel as! ACCellText)
+//            print("ячейка текст")
+        }
+
+        if cellModel is ACCellImage
+        {
+            cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier_45, for: indexPath) as! ACImageTableViewCell
+            (cell as! ACImageTableViewCell).configureSelf(withDataModel: cellModel as! ACCellImage)
+//            print("ячейка изображение")
+        }
+            
+        if cellModel is ACCellFooter
+        {
+            cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier_46, for: indexPath) as! ACFooterTableViewCell
+            (cell as! ACFooterTableViewCell).configureSelf(withDataModel: cellModel as! ACCellFooter)
+//            print("ячейка футер")
+        }
+        
         return cell as! UITableViewCell
     }
 }

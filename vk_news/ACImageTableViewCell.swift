@@ -1,28 +1,28 @@
 //
-//  ACNewsTableViewCell_3.swift
+//  ACImageTableViewCell.swift
 //  vk_news
 //
-//  Created by Gregory House on 10.11.16.
+//  Created by Gregory House on 26.11.16.
 //  Copyright © 2016 vvz. All rights reserved.
 //
 
 import UIKit
 import SDWebImage
 
-class ACNewsTableViewCell_3: UITableViewCell {
-
+class ACImageTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var postImage: UIImageView!
     
 }
 
 //MARK: конфигуратор ячейки
-extension ACNewsTableViewCell_3
+extension ACImageTableViewCell
 {
-    func configureSelf (withDataModel model: ACNews)
+    func configureSelf (withDataModel model: ACCellImage)
     {
         
         let rawImageView = UIImageView()
-        rawImageView.sd_setImage(with: NSURL(string: model.postImage) as! URL, placeholderImage: #imageLiteral(resourceName: "no-thumbnail"))
+        rawImageView.sd_setImage(with: NSURL(string: model.imageURL) as! URL, placeholderImage: #imageLiteral(resourceName: "no-thumbnail"))
         
         postImage.image = resizeImage(image: rawImageView.image!, targetSize: CGSize(width: frame.size.width, height: frame.size.width))
         
@@ -32,9 +32,9 @@ extension ACNewsTableViewCell_3
 }
 
 //MARK: изменение размера картинки
-extension ACNewsTableViewCell_3
+extension ACImageTableViewCell
 {
-
+    
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage
     {
         let size = image.size
@@ -65,7 +65,5 @@ extension ACNewsTableViewCell_3
         
         return newImage!
     }
-
+    
 }
-
-

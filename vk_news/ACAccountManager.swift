@@ -79,6 +79,8 @@ extension ACAccountManager
                 
                 var content = [ACBaseItem]()
                 
+                print("количество в цикле\(wallPosts.count)")
+                
                 for i in 1..<wallPosts.count
                 {
                     let post = wallPosts[i]
@@ -144,11 +146,14 @@ extension ACAccountManager
                     let postLikes = post["likes"].dictionaryValue
                     let postLikesCount = postLikes["count"]!.int64Value
                     let footer = ACCellFooter(WithCellID: 46, newsLikesCount: postLikesCount)
+                    
                     content.append(footer)
+                    print("количество в секции - \(content.count)")
                 
                     let localWallPost = ACWallPost(postId: postId, content: content)
-                    
                     accountItems.append(localWallPost)
+                    
+                    content.removeAll()
                 }
                 
                 var cityName = " "
