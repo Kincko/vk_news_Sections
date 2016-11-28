@@ -51,7 +51,6 @@
 		895B79141DE7510D00A12DC5 /* ACAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B79131DE7510D00A12DC5 /* ACAccountManager.swift */; };
 		895B79161DE7523800A12DC5 /* ACAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B79151DE7523800A12DC5 /* ACAccount.swift */; };
 		897275231DBFD5B500CD8FC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897275221DBFD5B500CD8FC3 /* AppDelegate.swift */; };
-		897275281DBFD5B500CD8FC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897275261DBFD5B500CD8FC3 /* Main.storyboard */; };
 		8972752D1DBFD5B500CD8FC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8972752B1DBFD5B500CD8FC3 /* LaunchScreen.storyboard */; };
 		897275381DBFD5B500CD8FC3 /* vk_newsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897275371DBFD5B500CD8FC3 /* vk_newsTests.swift */; };
 		897275431DBFD5B500CD8FC3 /* vk_newsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897275421DBFD5B500CD8FC3 /* vk_newsUITests.swift */; };
@@ -131,7 +130,6 @@
 		895B79151DE7523800A12DC5 /* ACAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACAccount.swift; sourceTree = "<group>"; };
 		8972751F1DBFD5B500CD8FC3 /* vk_news.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vk_news.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		897275221DBFD5B500CD8FC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		897275271DBFD5B500CD8FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8972752C1DBFD5B500CD8FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8972752E1DBFD5B500CD8FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		897275331DBFD5B500CD8FC3 /* vk_newsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vk_newsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,7 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				897275221DBFD5B500CD8FC3 /* AppDelegate.swift */,
-				897275261DBFD5B500CD8FC3 /* Main.storyboard */,
 				89D197A71DE058400042425C /* Assets.xcassets */,
 				8972752B1DBFD5B500CD8FC3 /* LaunchScreen.storyboard */,
 				8972752E1DBFD5B500CD8FC3 /* Info.plist */,
@@ -634,7 +631,6 @@
 				894AA12E1DE9BF02009BB555 /* ACImageTableViewCell.xib in Resources */,
 				895B79121DE611DF00A12DC5 /* ACAccountHeaderTableViewCell.xib in Resources */,
 				894AA1321DE9BFD0009BB555 /* ACFooterTableViewCell.xib in Resources */,
-				897275281DBFD5B500CD8FC3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,14 +776,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		897275261DBFD5B500CD8FC3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				897275271DBFD5B500CD8FC3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8972752B1DBFD5B500CD8FC3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
