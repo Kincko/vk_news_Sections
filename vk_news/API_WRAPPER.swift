@@ -31,7 +31,7 @@ class API_WRAPPER
             }
         }
         
-//        print("\n\n\n строка запроса - \(requestString)\n\n\n")
+        print("\n\n\n строка запроса - \(requestString)\n\n\n")
         
         let request = NSMutableURLRequest ()
         
@@ -72,7 +72,7 @@ extension API_WRAPPER
         argsDictionary.setObject("bdate,photo_100,city,counters", forKey: Const.URLConst.Arguments.kFields)
         argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
         
-        let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodForAccountInfo, withParametrs: argsDictionary)
+        let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodUser, withParametrs: argsDictionary)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)
@@ -139,7 +139,7 @@ extension API_WRAPPER
             {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
                 let swiftyJSON = JSON(json)
-//                print("\n\n ответ - \(swiftyJSON)\n\n ")
+                print("\n\n ответ - \(swiftyJSON)\n\n ")
                 successBlock(swiftyJSON)
             }
             catch

@@ -17,7 +17,7 @@ class Const
         class Scripts
         {
             static let kMethod = "newsfeed.get"
-            static let kMethodForAccountInfo = "users.get"
+            static let kMethodUser = "users.get"
             static let kMethodForWall = "wall.get"
             static let kMethodForCity = "database.getCitiesById"
         }
@@ -31,5 +31,13 @@ class Const
             static let kCityId: NSString = "city_ids"
             static let kAccessToken: NSString = "access_token"
         }
+    }
+    
+    
+    class AccessToken
+    {
+        
+        static var accessToken: NSString = ""
+        
     }
 }
