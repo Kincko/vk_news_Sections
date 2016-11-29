@@ -38,8 +38,21 @@ extension ACDialogManager
             //Массив аакаунтов для запроса доп. информации
             for dialog in jsonArray
             {
+                let IDChat = dialog["chat_id"].int64Value
                 let uid = dialog["uid"].int64Value
-                arrayUser.append("\(uid)")
+                if IDChat == 0
+                {
+                    arrayUser.append("\(uid)")
+                }
+                else
+                {
+                    let usersChat = dialog["chat_active"].stringValue
+                    let arrayUsersChat = usersChat.components(separatedBy: ",")
+                    for user in arrayUsersChat
+                    {
+                        arrayUser.append("\(user)")
+                    }
+                }
             }
             
             
@@ -61,6 +74,7 @@ extension ACDialogManager
                         continue
                     }
                     
+                    var arrayAvatar = [String]()
                     
                     //Проверяем беседа или обычный диалог
                     if chatID == 0
@@ -71,6 +85,7 @@ extension ACDialogManager
                             {
                                 name = user["first_name"].stringValue + " " + user["last_name"].stringValue
                                 photoURL = user["photo_100"].stringValue
+                                arrayAvatar.append(photoURL)
                             }
                         }
                     }
@@ -78,6 +93,28 @@ extension ACDialogManager
                     {
                         name = dialog["title"].stringValue
                         photoURL = dialog["photo_100"].stringValue
+                        
+                        if photoURL == ""
+                        {
+                            let usersChat = dialog["chat_active"].stringValue
+                            let arrayUsersChat = usersChat.components(separatedBy: ",")
+                            for userChat in arrayUsersChat
+                            {
+                                for user in accountArray
+                                {
+                                    let stringID = String(user["uid"].int64Value)
+                                    if  stringID == userChat
+                                    {
+                                        let avatarUserChat = user["photo_100"].stringValue
+                                        arrayAvatar.append(avatarUserChat)
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            arrayAvatar.append(photoURL)
+                        }
                     }
                     
                     let title = dialog["title"].stringValue
@@ -109,7 +146,7 @@ extension ACDialogManager
                         
                     }
                 
-                    let model = ACDialog(title: title, message: message, photoURL: photoURL, name: name, read: read, out: out)
+                    let model = ACDialog(title: title, message: message, photoURL: photoURL, name: name, read: read, out: out, avatarArray: arrayAvatar)
                     dialogArray.append(model)
                 }
                 
