@@ -115,4 +115,18 @@ extension ACMessagesViewController: UITableViewDataSource, UITableViewDelegate
         return 100.0
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let model = ACDialogManager.model(atIndex: indexPath.row)
+        let user = model.userID
+        ACChatManager.getChatMessages(withUser: user, success: {
+            DispatchQueue.main.async
+                {
+                    self.performSegue(withIdentifier: "ShowMessageViewController", sender: self)
+            }
+        }) { (errorCode) in
+            
+        }
+    }
+    
 }

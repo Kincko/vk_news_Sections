@@ -13,6 +13,9 @@
 		46B392781DCDEC3C0078ADFC /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B392771DCDEC3C0078ADFC /* SwiftyJSON.swift */; };
 		840B8C841DE5CB98006D548D /* ACDialogManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B8C831DE5CB98006D548D /* ACDialogManagers.swift */; };
 		840B8C861DE5CC19006D548D /* ACDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B8C851DE5CC19006D548D /* ACDialog.swift */; };
+		841D61F81DF02577001D7FAF /* JSQMessagesViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841D61F71DF02577001D7FAF /* JSQMessagesViewController.framework */; };
+		841D61FB1DF025C9001D7FAF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D61FA1DF025C9001D7FAF /* ChatViewController.swift */; };
+		841D61FD1DF038D9001D7FAF /* ACChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D61FC1DF038D9001D7FAF /* ACChatManager.swift */; };
 		843DE5F41DE71BB300644639 /* ACDialogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DE5F21DE71BB300644639 /* ACDialogTableViewCell.swift */; };
 		843DE5F51DE71BB300644639 /* ACDialogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843DE5F31DE71BB300644639 /* ACDialogTableViewCell.xib */; };
 		84F4839E1DE9C7AD004ABEAC /* ACAvatarChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4839C1DE9C7AD004ABEAC /* ACAvatarChatCollectionViewCell.swift */; };
@@ -77,6 +80,9 @@
 		77847D1265890A7D1BE8A520 /* Pods-vk_news.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vk_news.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vk_news/Pods-vk_news.debug.xcconfig"; sourceTree = "<group>"; };
 		840B8C831DE5CB98006D548D /* ACDialogManagers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACDialogManagers.swift; sourceTree = "<group>"; };
 		840B8C851DE5CC19006D548D /* ACDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACDialog.swift; sourceTree = "<group>"; };
+		841D61F71DF02577001D7FAF /* JSQMessagesViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQMessagesViewController.framework; path = "Pods/../build/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework"; sourceTree = "<group>"; };
+		841D61FA1DF025C9001D7FAF /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		841D61FC1DF038D9001D7FAF /* ACChatManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACChatManager.swift; sourceTree = "<group>"; };
 		843DE5F21DE71BB300644639 /* ACDialogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACDialogTableViewCell.swift; sourceTree = "<group>"; };
 		843DE5F31DE71BB300644639 /* ACDialogTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACDialogTableViewCell.xib; sourceTree = "<group>"; };
 		84F4839C1DE9C7AD004ABEAC /* ACAvatarChatCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACAvatarChatCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841D61F81DF02577001D7FAF /* JSQMessagesViewController.framework in Frameworks */,
 				894B4EB81DBFDB12006FEF19 /* VK_ios_sdk.framework in Frameworks */,
 				894B4EB61DBFD92F006FEF19 /* MWPhotoBrowser.framework in Frameworks */,
 				894B4EB41DBFD92A006FEF19 /* SDWebImage.framework in Frameworks */,
@@ -155,6 +162,7 @@
 		469D95E61DC4D861003CFFBA /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
+				841D61F91DF025A8001D7FAF /* Chat */,
 				469D95E71DC4D868003CFFBA /* newsfeed controllers */,
 			);
 			name = "view controllers";
@@ -189,6 +197,7 @@
 				469D95EA1DC4D88F003CFFBA /* ACAuthManager.swift */,
 				8932D0171DCE080600CA29B5 /* ACNewsManagers.swift */,
 				840B8C831DE5CB98006D548D /* ACDialogManagers.swift */,
+				841D61FC1DF038D9001D7FAF /* ACChatManager.swift */,
 				8932D0151DCDF79D00CA29B5 /* API_WRAPPER.swift */,
 			);
 			name = managers;
@@ -205,12 +214,21 @@
 		4D19C0E8AE227C3B47666040 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				841D61F71DF02577001D7FAF /* JSQMessagesViewController.framework */,
 				894B4EB71DBFDB12006FEF19 /* VK_ios_sdk.framework */,
 				894B4EB51DBFD92F006FEF19 /* MWPhotoBrowser.framework */,
 				894B4EB31DBFD92A006FEF19 /* SDWebImage.framework */,
 				B566AD47FDE186FEABBAD232 /* Pods_vk_news.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		841D61F91DF025A8001D7FAF /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				841D61FA1DF025C9001D7FAF /* ChatViewController.swift */,
+			);
+			name = Chat;
 			sourceTree = "<group>";
 		};
 		843DE5F11DE71B3700644639 /* DialogTableViewCell */ = {
@@ -537,7 +555,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		91498FDF02556AEB6F5BEEAC /* [CP] Copy Pods Resources */ = {
@@ -563,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				895B79011DE4B48400A12DC5 /* ACMessagesViewController.swift in Sources */,
+				841D61FD1DF038D9001D7FAF /* ACChatManager.swift in Sources */,
 				89D197B51DE09C410042425C /* ACNewsImage.swift in Sources */,
 				89143A6C1DD24DB400AD4985 /* ACNewsTableViewCell_2.swift in Sources */,
 				89143A771DD4DD9300AD4985 /* ACNewsTableViewCell_1.swift in Sources */,
@@ -572,6 +591,7 @@
 				895B79031DE4B49E00A12DC5 /* ACFriendsViewController.swift in Sources */,
 				895B79051DE4B4D600A12DC5 /* ACAccountViewController.swift in Sources */,
 				897275231DBFD5B500CD8FC3 /* AppDelegate.swift in Sources */,
+				841D61FB1DF025C9001D7FAF /* ChatViewController.swift in Sources */,
 				89D197AF1DE09B4E0042425C /* ACBaseItem.swift in Sources */,
 				89D197B11DE09B7F0042425C /* ACNewsItem.swift in Sources */,
 				89143A7B1DD4DDA400AD4985 /* ACNewsTableViewCell_3.swift in Sources */,
@@ -747,6 +767,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/MWPhotoBrowser",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/VK-ios-sdk",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/JSQMessagesViewController",
 				);
 				INFOPLIST_FILE = vk_news/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -768,6 +789,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/MWPhotoBrowser",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/VK-ios-sdk",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/JSQMessagesViewController",
 				);
 				INFOPLIST_FILE = vk_news/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

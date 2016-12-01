@@ -17,9 +17,10 @@ class ACDialog
     var read:Int
     var out:Int
     var avatarArray:[String]
+    var userID:String
     
     
-    init(title:String,message:String,photoURL:String,name:String,read:Int,out:Int, avatarArray:[String])
+    init(title:String,message:String,photoURL:String,name:String,read:Int,out:Int, avatarArray:[String],userID:String)
     {
         self.title = title
         self.message = message
@@ -28,6 +29,7 @@ class ACDialog
         self.read = read
         self.out = out
         self.avatarArray = avatarArray
+        self.userID = userID
     }
     
     

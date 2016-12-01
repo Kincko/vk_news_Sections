@@ -63,6 +63,26 @@ extension API_WRAPPER
     }
 }
 
+//MARK получение истории сообщений с определнным пользователем
+extension API_WRAPPER
+{
+    class func getChatMessages (withUser user: String, successBlock: @escaping (_ jsonResponce: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void)
+    {
+        let argsDictionary = NSMutableDictionary ()
+        
+        argsDictionary.setObject("20", forKey: Const.URLConst.Arguments.kCount)
+        argsDictionary.setObject("\(user)", forKey: Const.URLConst.Arguments.kUserChat)
+        argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
+        
+        
+        let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodUserChat, withParametrs: argsDictionary)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)
+        }
+        task.resume()
+    }
+}
 
 //MARK получение списка диалогов
 extension API_WRAPPER

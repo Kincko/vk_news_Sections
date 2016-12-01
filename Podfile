@@ -6,5 +6,6 @@ target ‘vk_news’ do
     pod 'SDWebImage', '~>3.8'
     pod 'MWPhotoBrowser'
     pod 'VK-ios-sdk'
+    pod 'JSQMessagesViewController'
 
 end

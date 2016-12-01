@@ -67,6 +67,7 @@ extension ACDialogManager
                     let read = dialog["read_state"].intValue
                     var photoURL = ""
                     var name = ""
+                    let userID = String(uid)
                     
                     //Если есть пустой элемент, пропускаем его
                     if uid == 0
@@ -146,7 +147,7 @@ extension ACDialogManager
                         
                     }
                 
-                    let model = ACDialog(title: title, message: message, photoURL: photoURL, name: name, read: read, out: out, avatarArray: arrayAvatar)
+                    let model = ACDialog(title: title, message: message, photoURL: photoURL, name: name, read: read, out: out, avatarArray: arrayAvatar, userID: userID)
                     dialogArray.append(model)
                 }
                 
