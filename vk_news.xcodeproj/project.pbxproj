@@ -42,6 +42,7 @@
 		894AA1721DEF46B5009BB555 /* ACCellVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894AA1711DEF46B5009BB555 /* ACCellVideo.swift */; };
 		894AA1761DEF4D46009BB555 /* ACVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894AA1741DEF4D46009BB555 /* ACVideoTableViewCell.swift */; };
 		894AA1771DEF4D46009BB555 /* ACVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894AA1751DEF4D46009BB555 /* ACVideoTableViewCell.xib */; };
+		894AA17A1DF098E6009BB555 /* ACPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894AA1791DF098E6009BB555 /* ACPlayerViewController.swift */; };
 		894B4EB41DBFD92A006FEF19 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894B4EB31DBFD92A006FEF19 /* SDWebImage.framework */; };
 		894B4EB61DBFD92F006FEF19 /* MWPhotoBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894B4EB51DBFD92F006FEF19 /* MWPhotoBrowser.framework */; };
 		894B4EB81DBFDB12006FEF19 /* VK_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894B4EB71DBFDB12006FEF19 /* VK_ios_sdk.framework */; };
@@ -59,6 +60,7 @@
 		897275381DBFD5B500CD8FC3 /* vk_newsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897275371DBFD5B500CD8FC3 /* vk_newsTests.swift */; };
 		897275431DBFD5B500CD8FC3 /* vk_newsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897275421DBFD5B500CD8FC3 /* vk_newsUITests.swift */; };
 		899415BD1DCE0A0E000186E6 /* ACNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899415BC1DCE0A0E000186E6 /* ACNews.swift */; };
+		89BF32561DF0A308003AA1C5 /* ACVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF32551DF0A308003AA1C5 /* ACVideoManager.swift */; };
 		89D197A81DE058400042425C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89D197A71DE058400042425C /* Assets.xcassets */; };
 		89D197AC1DE05D7A0042425C /* ACNewsTableViewCell_99.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D197AA1DE05D7A0042425C /* ACNewsTableViewCell_99.swift */; };
 		89D197AD1DE05D7A0042425C /* ACNewsTableViewCell_99.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D197AB1DE05D7A0042425C /* ACNewsTableViewCell_99.xib */; };
@@ -124,6 +126,7 @@
 		894AA1711DEF46B5009BB555 /* ACCellVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACCellVideo.swift; sourceTree = "<group>"; };
 		894AA1741DEF4D46009BB555 /* ACVideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACVideoTableViewCell.swift; sourceTree = "<group>"; };
 		894AA1751DEF4D46009BB555 /* ACVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACVideoTableViewCell.xib; sourceTree = "<group>"; };
+		894AA1791DF098E6009BB555 /* ACPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPlayerViewController.swift; sourceTree = "<group>"; };
 		894B4EB31DBFD92A006FEF19 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		894B4EB51DBFD92F006FEF19 /* MWPhotoBrowser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MWPhotoBrowser.framework; path = "Pods/../build/Debug-iphoneos/MWPhotoBrowser/MWPhotoBrowser.framework"; sourceTree = "<group>"; };
 		894B4EB71DBFDB12006FEF19 /* VK_ios_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VK_ios_sdk.framework; path = "Pods/../build/Debug-iphoneos/VK-ios-sdk/VK_ios_sdk.framework"; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 		897275421DBFD5B500CD8FC3 /* vk_newsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vk_newsUITests.swift; sourceTree = "<group>"; };
 		897275441DBFD5B500CD8FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		899415BC1DCE0A0E000186E6 /* ACNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNews.swift; sourceTree = "<group>"; };
+		89BF32551DF0A308003AA1C5 /* ACVideoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACVideoManager.swift; sourceTree = "<group>"; };
 		89D197A71DE058400042425C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89D197AA1DE05D7A0042425C /* ACNewsTableViewCell_99.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNewsTableViewCell_99.swift; sourceTree = "<group>"; };
 		89D197AB1DE05D7A0042425C /* ACNewsTableViewCell_99.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACNewsTableViewCell_99.xib; sourceTree = "<group>"; };
@@ -191,20 +195,20 @@
 		469D95E61DC4D861003CFFBA /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
-				469D95E71DC4D868003CFFBA /* newsfeed controllers */,
+				894AA1781DF0988D009BB555 /* Account View Controller */,
+				469D95E71DC4D868003CFFBA /* NewsFeed View Controller */,
 			);
 			name = "view controllers";
 			sourceTree = "<group>";
 		};
-		469D95E71DC4D868003CFFBA /* newsfeed controllers */ = {
+		469D95E71DC4D868003CFFBA /* NewsFeed View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				469D95EC1DC4EAB7003CFFBA /* ACFeedViewController.swift */,
 				895B79001DE4B48400A12DC5 /* ACMessagesViewController.swift */,
 				895B79021DE4B49E00A12DC5 /* ACFriendsViewController.swift */,
-				895B79041DE4B4D600A12DC5 /* ACAccountViewController.swift */,
 			);
-			name = "newsfeed controllers";
+			name = "NewsFeed View Controller";
 			sourceTree = "<group>";
 		};
 		469D95E81DC4D873003CFFBA /* system */ = {
@@ -225,6 +229,7 @@
 				469D95EA1DC4D88F003CFFBA /* ACAuthManager.swift */,
 				8932D0171DCE080600CA29B5 /* ACNewsManagers.swift */,
 				895B79131DE7510D00A12DC5 /* ACAccountManager.swift */,
+				89BF32551DF0A308003AA1C5 /* ACVideoManager.swift */,
 				8932D0151DCDF79D00CA29B5 /* API_WRAPPER.swift */,
 			);
 			name = managers;
@@ -416,6 +421,15 @@
 				894AA1751DEF4D46009BB555 /* ACVideoTableViewCell.xib */,
 			);
 			name = "Custom Cell For Video";
+			sourceTree = "<group>";
+		};
+		894AA1781DF0988D009BB555 /* Account View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				895B79041DE4B4D600A12DC5 /* ACAccountViewController.swift */,
+				894AA1791DF098E6009BB555 /* ACPlayerViewController.swift */,
+			);
+			name = "Account View Controller";
 			sourceTree = "<group>";
 		};
 		895B79061DE610FD00A12DC5 /* AccountTableViewCells */ = {
@@ -756,11 +770,13 @@
 				895B78FF1DE4B2E100A12DC5 /* ACSource.swift in Sources */,
 				894AA1101DE96B70009BB555 /* ACCellFooter.swift in Sources */,
 				894AA1011DE96892009BB555 /* ACWallPostCopyHeader.swift in Sources */,
+				894AA17A1DF098E6009BB555 /* ACPlayerViewController.swift in Sources */,
 				469D95ED1DC4EAB7003CFFBA /* ACFeedViewController.swift in Sources */,
 				894AA1221DE9BD4F009BB555 /* ACWallCopySourceTableViewCell.swift in Sources */,
 				89D197AC1DE05D7A0042425C /* ACNewsTableViewCell_99.swift in Sources */,
 				894AA1311DE9BFD0009BB555 /* ACFooterTableViewCell.swift in Sources */,
 				8932D0161DCDF79D00CA29B5 /* API_WRAPPER.swift in Sources */,
+				89BF32561DF0A308003AA1C5 /* ACVideoManager.swift in Sources */,
 				894AA10C1DE96AFF009BB555 /* ACCellSource.swift in Sources */,
 				46B392781DCDEC3C0078ADFC /* SwiftyJSON.swift in Sources */,
 				8932D0181DCE080600CA29B5 /* ACNewsManagers.swift in Sources */,

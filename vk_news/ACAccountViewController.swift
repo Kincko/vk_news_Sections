@@ -62,6 +62,7 @@ extension ACAccountViewController
 
         
         self.tableView.dataSource = self
+        self.tableView.delegate = self
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 44
@@ -100,7 +101,7 @@ extension ACAccountViewController
 }
 
 //MARK: реализация процедуры интерфейса UITableViewDataSource
-extension ACAccountViewController: UITableViewDataSource
+extension ACAccountViewController: UITableViewDataSource, UITableViewDelegate
 {
     func numberOfSections(in tableView: UITableView) -> Int
     {
@@ -173,6 +174,27 @@ extension ACAccountViewController: UITableViewDataSource
         }
         
         return cell as! UITableViewCell
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
+    {
+        self.performSegue(withIdentifier: "showVideo", sender: indexPath as IndexPath)
+        return nil
+    }
+    
+    func prepare(for segue: UIStoryboardSegue, sender: IndexPath)
+    {
+        let model = ACAccountManager.getCellModel(atIndex: sender.section)
+        let modelForSegue = model.content[sender.row]
+        
+        if modelForSegue is ACCellVideo
+        {
+            if segue.identifier == "showVideo"
+            {
+                let targetVC = segue.destination as! ACPlayerViewController
+                targetVC.videoModel = modelForSegue as! ACCellVideo
+            }
+        }
     }
 }
 

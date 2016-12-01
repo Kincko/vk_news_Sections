@@ -48,6 +48,14 @@
             </objects>
             <point key="canvasLocation" x="-1534" y="624"/>
         </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="trJ-qB-Zsc">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="Xc2-fS-eUT" customClass="ACPlayerViewController" customModule="vk_news" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VwF-cz-eG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2220" y="1397"/>
+        </scene>
         <!--Мой профиль-->
         <scene sceneID="s4B-0L-b4r">
             <objects>
@@ -76,6 +84,7 @@
                     <tabBarItem key="tabBarItem" title="Мой профиль" image="accaunt" id="yap-by-ojX"/>
                     <connections>
                         <outlet property="tableView" destination="9yp-ho-l8r" id="ncJ-hn-tLC"/>
+                        <segue destination="Xc2-fS-eUT" kind="show" identifier="showVideo" id="HL8-6d-759"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0u7-9V-7oI" userLabel="First Responder" sceneMemberID="firstResponder"/>
