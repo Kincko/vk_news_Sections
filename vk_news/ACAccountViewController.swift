@@ -26,6 +26,9 @@ private let kPostsCellIndentifier_45 = "kNewsCellIdentifier_45"
 private let kpostsCellXIBName_46 = "ACFooterTableViewCell"
 private let kPostsCellIndentifier_46 = "kNewsCellIdentifier_46"
 
+private let kpostsCellXIBName_47 = "ACVideoTableViewCell"
+private let kPostsCellIndentifier_47 = "kNewsCellIdentifier_47"
+
 private let kpostsCellXIBName_100 = "ACUnderCTableViewCell"
 private let kPostsCellIndentifier_100 = "kNewsCellIdentifier_100"
 
@@ -54,6 +57,7 @@ extension ACAccountViewController
         self.tableView.register(UINib(nibName: kpostsCellXIBName_44, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier_44)
         self.tableView.register(UINib(nibName: kpostsCellXIBName_45, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier_45)
         self.tableView.register(UINib(nibName: kpostsCellXIBName_46, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier_46)
+        self.tableView.register(UINib(nibName: kpostsCellXIBName_47, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier_47)
         self.tableView.register(UINib(nibName: kpostsCellXIBName_100, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier_100)
 
         
@@ -153,7 +157,14 @@ extension ACAccountViewController: UITableViewDataSource
             (cell as! ACImageTableViewCell).configureSelf(withDataModel: cellModel as! ACCellImage)
 //            print("ячейка изображение")
         }
-            
+        
+        if cellModel is ACCellVideo
+        {
+            cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier_47, for: indexPath) as! ACVideoTableViewCell
+            (cell as! ACVideoTableViewCell).configureSelf(withDataModel: cellModel as! ACCellVideo)
+//            print("ячейка видео")
+        }
+        
         if cellModel is ACCellFooter
         {
             cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier_46, for: indexPath) as! ACFooterTableViewCell

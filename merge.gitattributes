@@ -1,4 +1,0 @@
-*.pbxproj merge=union
-
-API_WRAPPER.swift merge=union
-Consts.swift merge=union

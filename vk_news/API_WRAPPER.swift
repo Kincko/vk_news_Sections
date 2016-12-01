@@ -72,7 +72,7 @@ extension API_WRAPPER
         argsDictionary.setObject("bdate,photo_100,city,counters", forKey: Const.URLConst.Arguments.kFields)
         argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
         
-        let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodUser, withParametrs: argsDictionary)
+        let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodForAccountInfo, withParametrs: argsDictionary)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)
@@ -114,6 +114,26 @@ extension API_WRAPPER
         argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
         
         let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodForCity, withParametrs: argsDictionary)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)
+        }
+        
+        task.resume()
+    }
+}
+
+//MARK: получение видеопотока
+extension API_WRAPPER
+{
+    class func getVideo (forOwnerId ownerId: Int64, andVideoId vId: Int64, successBlock: @escaping (_ jsonResponce: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void)
+    {
+        let argsDictionary = NSMutableDictionary ()
+        
+        argsDictionary.setObject("\(ownerId)_\(vId)", forKey: Const.URLConst.Arguments.kVideos)
+        argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
+        
+        let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodForVideo, withParametrs: argsDictionary)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)

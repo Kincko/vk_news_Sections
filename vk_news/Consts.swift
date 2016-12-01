@@ -17,9 +17,10 @@ class Const
         class Scripts
         {
             static let kMethod = "newsfeed.get"
-            static let kMethodUser = "users.get"
+            static let kMethodForAccountInfo = "users.get"
             static let kMethodForWall = "wall.get"
             static let kMethodForCity = "database.getCitiesById"
+            static let kMethodForVideo = "video.get"
         }
         
         class Arguments
@@ -30,14 +31,12 @@ class Const
             static let kExtended: NSString = "extended"
             static let kCityId: NSString = "city_ids"
             static let kAccessToken: NSString = "access_token"
+            static let kVideos: NSString = "videos"
         }
     }
     
-    
     class AccessToken
     {
-        
         static var accessToken: NSString = ""
-        
     }
 }

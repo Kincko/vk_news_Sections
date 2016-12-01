@@ -39,6 +39,9 @@
 		894AA12E1DE9BF02009BB555 /* ACImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894AA12C1DE9BF02009BB555 /* ACImageTableViewCell.xib */; };
 		894AA1311DE9BFD0009BB555 /* ACFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894AA12F1DE9BFD0009BB555 /* ACFooterTableViewCell.swift */; };
 		894AA1321DE9BFD0009BB555 /* ACFooterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894AA1301DE9BFD0009BB555 /* ACFooterTableViewCell.xib */; };
+		894AA1721DEF46B5009BB555 /* ACCellVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894AA1711DEF46B5009BB555 /* ACCellVideo.swift */; };
+		894AA1761DEF4D46009BB555 /* ACVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894AA1741DEF4D46009BB555 /* ACVideoTableViewCell.swift */; };
+		894AA1771DEF4D46009BB555 /* ACVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894AA1751DEF4D46009BB555 /* ACVideoTableViewCell.xib */; };
 		894B4EB41DBFD92A006FEF19 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894B4EB31DBFD92A006FEF19 /* SDWebImage.framework */; };
 		894B4EB61DBFD92F006FEF19 /* MWPhotoBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894B4EB51DBFD92F006FEF19 /* MWPhotoBrowser.framework */; };
 		894B4EB81DBFDB12006FEF19 /* VK_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894B4EB71DBFDB12006FEF19 /* VK_ios_sdk.framework */; };
@@ -51,6 +54,8 @@
 		895B79141DE7510D00A12DC5 /* ACAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B79131DE7510D00A12DC5 /* ACAccountManager.swift */; };
 		895B79161DE7523800A12DC5 /* ACAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B79151DE7523800A12DC5 /* ACAccount.swift */; };
 		897275231DBFD5B500CD8FC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897275221DBFD5B500CD8FC3 /* AppDelegate.swift */; };
+		897275281DBFD5B500CD8FC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897275261DBFD5B500CD8FC3 /* Main.storyboard */; };
+		8972752D1DBFD5B500CD8FC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8972752B1DBFD5B500CD8FC3 /* LaunchScreen.storyboard */; };
 		897275381DBFD5B500CD8FC3 /* vk_newsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897275371DBFD5B500CD8FC3 /* vk_newsTests.swift */; };
 		897275431DBFD5B500CD8FC3 /* vk_newsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897275421DBFD5B500CD8FC3 /* vk_newsUITests.swift */; };
 		899415BD1DCE0A0E000186E6 /* ACNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899415BC1DCE0A0E000186E6 /* ACNews.swift */; };
@@ -116,6 +121,9 @@
 		894AA12C1DE9BF02009BB555 /* ACImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACImageTableViewCell.xib; sourceTree = "<group>"; };
 		894AA12F1DE9BFD0009BB555 /* ACFooterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACFooterTableViewCell.swift; sourceTree = "<group>"; };
 		894AA1301DE9BFD0009BB555 /* ACFooterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACFooterTableViewCell.xib; sourceTree = "<group>"; };
+		894AA1711DEF46B5009BB555 /* ACCellVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACCellVideo.swift; sourceTree = "<group>"; };
+		894AA1741DEF4D46009BB555 /* ACVideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACVideoTableViewCell.swift; sourceTree = "<group>"; };
+		894AA1751DEF4D46009BB555 /* ACVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACVideoTableViewCell.xib; sourceTree = "<group>"; };
 		894B4EB31DBFD92A006FEF19 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		894B4EB51DBFD92F006FEF19 /* MWPhotoBrowser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MWPhotoBrowser.framework; path = "Pods/../build/Debug-iphoneos/MWPhotoBrowser/MWPhotoBrowser.framework"; sourceTree = "<group>"; };
 		894B4EB71DBFDB12006FEF19 /* VK_ios_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VK_ios_sdk.framework; path = "Pods/../build/Debug-iphoneos/VK-ios-sdk/VK_ios_sdk.framework"; sourceTree = "<group>"; };
@@ -129,6 +137,8 @@
 		895B79151DE7523800A12DC5 /* ACAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACAccount.swift; sourceTree = "<group>"; };
 		8972751F1DBFD5B500CD8FC3 /* vk_news.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vk_news.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		897275221DBFD5B500CD8FC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		897275271DBFD5B500CD8FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8972752C1DBFD5B500CD8FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8972752E1DBFD5B500CD8FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		897275331DBFD5B500CD8FC3 /* vk_newsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vk_newsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		897275371DBFD5B500CD8FC3 /* vk_newsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vk_newsTests.swift; sourceTree = "<group>"; };
@@ -201,7 +211,9 @@
 			isa = PBXGroup;
 			children = (
 				897275221DBFD5B500CD8FC3 /* AppDelegate.swift */,
+				897275261DBFD5B500CD8FC3 /* Main.storyboard */,
 				89D197A71DE058400042425C /* Assets.xcassets */,
+				8972752B1DBFD5B500CD8FC3 /* LaunchScreen.storyboard */,
 				8972752E1DBFD5B500CD8FC3 /* Info.plist */,
 			);
 			name = system;
@@ -310,6 +322,7 @@
 				894AA10D1DE96B44009BB555 /* ACCellImage.swift */,
 				894AA10F1DE96B70009BB555 /* ACCellFooter.swift */,
 				895B79151DE7523800A12DC5 /* ACAccount.swift */,
+				894AA1711DEF46B5009BB555 /* ACCellVideo.swift */,
 			);
 			name = "Basic Models";
 			sourceTree = "<group>";
@@ -341,6 +354,7 @@
 		894AA1181DE9BB2F009BB555 /* Custom Cells for Wall Item */ = {
 			isa = PBXGroup;
 			children = (
+				894AA1731DEF4D13009BB555 /* Custom Cell For Video */,
 				894AA12A1DE9BECD009BB555 /* Custom Cell for Footer */,
 				894AA1291DE9BEB6009BB555 /* Custom Cell for Image */,
 				894AA1241DE9BDF5009BB555 /* Custom Cell for Text */,
@@ -393,6 +407,15 @@
 				894AA1301DE9BFD0009BB555 /* ACFooterTableViewCell.xib */,
 			);
 			name = "Custom Cell for Footer";
+			sourceTree = "<group>";
+		};
+		894AA1731DEF4D13009BB555 /* Custom Cell For Video */ = {
+			isa = PBXGroup;
+			children = (
+				894AA1741DEF4D46009BB555 /* ACVideoTableViewCell.swift */,
+				894AA1751DEF4D46009BB555 /* ACVideoTableViewCell.xib */,
+			);
+			name = "Custom Cell For Video";
 			sourceTree = "<group>";
 		};
 		895B79061DE610FD00A12DC5 /* AccountTableViewCells */ = {
@@ -616,10 +639,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				89143A6D1DD24DB400AD4985 /* ACNewsTableViewCell_2.xib in Resources */,
+				8972752D1DBFD5B500CD8FC3 /* LaunchScreen.storyboard in Resources */,
 				89D197AD1DE05D7A0042425C /* ACNewsTableViewCell_99.xib in Resources */,
 				89143A781DD4DD9300AD4985 /* ACNewsTableViewCell_1.xib in Resources */,
 				894AA1161DE98BF1009BB555 /* ACUnderCTableViewCell.xib in Resources */,
 				89D197A81DE058400042425C /* Assets.xcassets in Resources */,
+				894AA1771DEF4D46009BB555 /* ACVideoTableViewCell.xib in Resources */,
 				894AA1231DE9BD4F009BB555 /* ACWallCopySourceTableViewCell.xib in Resources */,
 				894AA11D1DE9BB70009BB555 /* ACWallHeaderTableViewCell.xib in Resources */,
 				894AA1281DE9BE10009BB555 /* ACWallTextTableViewCell.xib in Resources */,
@@ -627,6 +652,7 @@
 				894AA12E1DE9BF02009BB555 /* ACImageTableViewCell.xib in Resources */,
 				895B79121DE611DF00A12DC5 /* ACAccountHeaderTableViewCell.xib in Resources */,
 				894AA1321DE9BFD0009BB555 /* ACFooterTableViewCell.xib in Resources */,
+				897275281DBFD5B500CD8FC3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +733,7 @@
 				899415BD1DCE0A0E000186E6 /* ACNews.swift in Sources */,
 				895B79031DE4B49E00A12DC5 /* ACFriendsViewController.swift in Sources */,
 				895B79141DE7510D00A12DC5 /* ACAccountManager.swift in Sources */,
+				894AA1721DEF46B5009BB555 /* ACCellVideo.swift in Sources */,
 				894AA12D1DE9BF02009BB555 /* ACImageTableViewCell.swift in Sources */,
 				895B79051DE4B4D600A12DC5 /* ACAccountViewController.swift in Sources */,
 				894AA0FD1DE96865009BB555 /* ACWallPost.swift in Sources */,
@@ -725,6 +752,7 @@
 				894AA11C1DE9BB70009BB555 /* ACWallHeaderTableViewCell.swift in Sources */,
 				469D95EB1DC4D88F003CFFBA /* ACAuthManager.swift in Sources */,
 				894AA1271DE9BE10009BB555 /* ACWallTextTableViewCell.swift in Sources */,
+				894AA1761DEF4D46009BB555 /* ACVideoTableViewCell.swift in Sources */,
 				895B78FF1DE4B2E100A12DC5 /* ACSource.swift in Sources */,
 				894AA1101DE96B70009BB555 /* ACCellFooter.swift in Sources */,
 				894AA1011DE96892009BB555 /* ACWallPostCopyHeader.swift in Sources */,
@@ -770,6 +798,25 @@
 			targetProxy = 8972753F1DBFD5B500CD8FC3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		897275261DBFD5B500CD8FC3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				897275271DBFD5B500CD8FC3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8972752B1DBFD5B500CD8FC3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8972752C1DBFD5B500CD8FC3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		897275451DBFD5B500CD8FC3 /* Debug */ = {

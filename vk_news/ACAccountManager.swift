@@ -139,6 +139,24 @@ extension ACAccountManager
                     }
                     
                     let postAttachment = post["attachment"].dictionaryValue
+                    
+                    let attachmentType = postAttachment["type"]?.stringValue
+                    
+                    if attachmentType == "video"
+                    {
+                        let postVideo = postAttachment["video"]?.dictionaryValue
+                        let ownerId = postVideo?["owner_id"]?.int64Value
+                        let vId = postVideo?["vid"]?.int64Value
+                        let title = postVideo?["title"]?.stringValue
+                        let description = postVideo?["description"]?.stringValue
+                        let views = postVideo?["views"]?.int64Value
+                        let placeHolderURL = postVideo?["image"]?.stringValue
+                        
+                        let video = ACCellVideo(ownerId: ownerId!, vId: vId!, title: title!, description: description!, views: views!, placeHolderURL: placeHolderURL!)
+                        
+                        content.append(video)
+                    }
+                    
                     let postImages = postAttachment["photo"]?.dictionaryValue
                     let postImage = postImages?["src_big"]?.stringValue
                     
