@@ -152,9 +152,16 @@ extension ACAccountManager
                         let views = postVideo?["views"]?.int64Value
                         let placeHolderURL = postVideo?["image"]?.stringValue
                         
-                        let video = ACCellVideo(ownerId: ownerId!, vId: vId!, title: title!, description: description!, views: views!, placeHolderURL: placeHolderURL!)
-                        
-                        content.append(video)
+                        if let accessKey = postVideo?["access_key"]?.stringValue
+                        {
+                            let video = ACCellVideo(ownerId: ownerId!, vId: vId!, title: title!, description: description!, views: views!, placeHolderURL: placeHolderURL!, accessKey: accessKey)
+                            content.append(video)
+                        }
+                        else
+                        {
+                            let video = ACCellVideo(ownerId: ownerId!, vId: vId!, title: title!, description: description!, views: views!, placeHolderURL: placeHolderURL!, accessKey: "")
+                            content.append(video)
+                        }
                     }
                     
                     let postImages = postAttachment["photo"]?.dictionaryValue

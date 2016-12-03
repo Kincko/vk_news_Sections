@@ -126,11 +126,19 @@ extension API_WRAPPER
 //MARK: получение видеопотока
 extension API_WRAPPER
 {
-    class func getVideo (forOwnerId ownerId: Int64, andVideoId vId: Int64, successBlock: @escaping (_ jsonResponce: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void)
+    class func getVideo (forOwnerId ownerId: Int64, andVideoId vId: Int64, andAccessKey accessKey: String, successBlock: @escaping (_ jsonResponce: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void)
     {
         let argsDictionary = NSMutableDictionary ()
         
-        argsDictionary.setObject("\(ownerId)_\(vId)", forKey: Const.URLConst.Arguments.kVideos)
+        if accessKey == ""
+        {
+            argsDictionary.setObject("\(ownerId)_\(vId)", forKey: Const.URLConst.Arguments.kVideos)
+        }
+        else
+        {
+            argsDictionary.setObject("\(ownerId)_\(vId)_\(accessKey)", forKey: Const.URLConst.Arguments.kVideos)
+        }
+        
         argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
         
         let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodForVideo, withParametrs: argsDictionary)

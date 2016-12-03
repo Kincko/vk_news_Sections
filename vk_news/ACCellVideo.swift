@@ -16,7 +16,8 @@ class ACCellVideo: ACBaseItem
     var description: String
     var views: Int64
     var placeHolderURL: String
-    init(ownerId: Int64, vId: Int64, title: String, description: String, views: Int64, placeHolderURL: String)
+    var accessKey: String
+    init(ownerId: Int64, vId: Int64, title: String, description: String, views: Int64, placeHolderURL: String, accessKey: String)
     {
         self.ownerId = ownerId
         self.vId = vId
@@ -24,5 +25,6 @@ class ACCellVideo: ACBaseItem
         self.description = description
         self.views = views
         self.placeHolderURL = placeHolderURL
+        self.accessKey = accessKey
     }
 }

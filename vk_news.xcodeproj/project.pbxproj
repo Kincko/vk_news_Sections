@@ -20,6 +20,7 @@
 		8932D0131DCDEFED00CA29B5 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932D0121DCDEFED00CA29B5 /* Consts.swift */; };
 		8932D0161DCDF79D00CA29B5 /* API_WRAPPER.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932D0151DCDF79D00CA29B5 /* API_WRAPPER.swift */; };
 		8932D0181DCE080600CA29B5 /* ACNewsManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932D0171DCE080600CA29B5 /* ACNewsManagers.swift */; };
+		89421C8F1DF2BB7C003B7A21 /* ACVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89421C8E1DF2BB7C003B7A21 /* ACVideoViewController.swift */; };
 		894AA0FD1DE96865009BB555 /* ACWallPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894AA0FC1DE96865009BB555 /* ACWallPost.swift */; };
 		894AA0FF1DE96880009BB555 /* ACCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894AA0FE1DE96880009BB555 /* ACCellHeader.swift */; };
 		894AA1011DE96892009BB555 /* ACWallPostCopyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894AA1001DE96892009BB555 /* ACWallPostCopyHeader.swift */; };
@@ -42,7 +43,6 @@
 		894AA1721DEF46B5009BB555 /* ACCellVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894AA1711DEF46B5009BB555 /* ACCellVideo.swift */; };
 		894AA1761DEF4D46009BB555 /* ACVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894AA1741DEF4D46009BB555 /* ACVideoTableViewCell.swift */; };
 		894AA1771DEF4D46009BB555 /* ACVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894AA1751DEF4D46009BB555 /* ACVideoTableViewCell.xib */; };
-		894AA17A1DF098E6009BB555 /* ACPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894AA1791DF098E6009BB555 /* ACPlayerViewController.swift */; };
 		894B4EB41DBFD92A006FEF19 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894B4EB31DBFD92A006FEF19 /* SDWebImage.framework */; };
 		894B4EB61DBFD92F006FEF19 /* MWPhotoBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894B4EB51DBFD92F006FEF19 /* MWPhotoBrowser.framework */; };
 		894B4EB81DBFDB12006FEF19 /* VK_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894B4EB71DBFDB12006FEF19 /* VK_ios_sdk.framework */; };
@@ -104,6 +104,7 @@
 		8932D0121DCDEFED00CA29B5 /* Consts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		8932D0151DCDF79D00CA29B5 /* API_WRAPPER.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API_WRAPPER.swift; sourceTree = "<group>"; };
 		8932D0171DCE080600CA29B5 /* ACNewsManagers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNewsManagers.swift; sourceTree = "<group>"; };
+		89421C8E1DF2BB7C003B7A21 /* ACVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACVideoViewController.swift; sourceTree = "<group>"; };
 		894AA0FC1DE96865009BB555 /* ACWallPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACWallPost.swift; sourceTree = "<group>"; };
 		894AA0FE1DE96880009BB555 /* ACCellHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACCellHeader.swift; sourceTree = "<group>"; };
 		894AA1001DE96892009BB555 /* ACWallPostCopyHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACWallPostCopyHeader.swift; sourceTree = "<group>"; };
@@ -126,7 +127,6 @@
 		894AA1711DEF46B5009BB555 /* ACCellVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACCellVideo.swift; sourceTree = "<group>"; };
 		894AA1741DEF4D46009BB555 /* ACVideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACVideoTableViewCell.swift; sourceTree = "<group>"; };
 		894AA1751DEF4D46009BB555 /* ACVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACVideoTableViewCell.xib; sourceTree = "<group>"; };
-		894AA1791DF098E6009BB555 /* ACPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPlayerViewController.swift; sourceTree = "<group>"; };
 		894B4EB31DBFD92A006FEF19 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		894B4EB51DBFD92F006FEF19 /* MWPhotoBrowser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MWPhotoBrowser.framework; path = "Pods/../build/Debug-iphoneos/MWPhotoBrowser/MWPhotoBrowser.framework"; sourceTree = "<group>"; };
 		894B4EB71DBFDB12006FEF19 /* VK_ios_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VK_ios_sdk.framework; path = "Pods/../build/Debug-iphoneos/VK-ios-sdk/VK_ios_sdk.framework"; sourceTree = "<group>"; };
@@ -427,7 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				895B79041DE4B4D600A12DC5 /* ACAccountViewController.swift */,
-				894AA1791DF098E6009BB555 /* ACPlayerViewController.swift */,
+				89421C8E1DF2BB7C003B7A21 /* ACVideoViewController.swift */,
 			);
 			name = "Account View Controller";
 			sourceTree = "<group>";
@@ -770,12 +770,12 @@
 				895B78FF1DE4B2E100A12DC5 /* ACSource.swift in Sources */,
 				894AA1101DE96B70009BB555 /* ACCellFooter.swift in Sources */,
 				894AA1011DE96892009BB555 /* ACWallPostCopyHeader.swift in Sources */,
-				894AA17A1DF098E6009BB555 /* ACPlayerViewController.swift in Sources */,
 				469D95ED1DC4EAB7003CFFBA /* ACFeedViewController.swift in Sources */,
 				894AA1221DE9BD4F009BB555 /* ACWallCopySourceTableViewCell.swift in Sources */,
 				89D197AC1DE05D7A0042425C /* ACNewsTableViewCell_99.swift in Sources */,
 				894AA1311DE9BFD0009BB555 /* ACFooterTableViewCell.swift in Sources */,
 				8932D0161DCDF79D00CA29B5 /* API_WRAPPER.swift in Sources */,
+				89421C8F1DF2BB7C003B7A21 /* ACVideoViewController.swift in Sources */,
 				89BF32561DF0A308003AA1C5 /* ACVideoManager.swift in Sources */,
 				894AA10C1DE96AFF009BB555 /* ACCellSource.swift in Sources */,
 				46B392781DCDEC3C0078ADFC /* SwiftyJSON.swift in Sources */,

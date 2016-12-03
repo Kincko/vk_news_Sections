@@ -13,14 +13,18 @@ import AVKit
 
 class ACPlayerViewController: AVPlayerViewController
 {
-    var videoModel: ACCellVideo!
+    static var videoModel: ACCellVideo!
 
+    var videoURLForPlayer: String = "summer2016.m4v"
     
     override func viewDidAppear(_ animated: Bool)
     {
+        print("id видео - \(ACPlayerViewController.videoModel.vId)")
         authorize()
-        let videoURL = NSURL(string: "https://vk.com/video_ext.php?oid=3623650&id=456239041&hash=e8c8178c2812f863")
-        let player = AVPlayer(url: videoURL! as URL)
+        print("название видео - \(ACPlayerViewController.videoModel.title)")
+
+        let player = AVPlayer(url: NSURL(string: "\(videoURLForPlayer)") as! URL)
+        print("адрес видео - \(videoURLForPlayer)")
         let playerViewController = AVPlayerViewController()
         playerViewController.player = player
         self.present(playerViewController, animated: true) {
@@ -49,19 +53,14 @@ extension ACPlayerViewController
 {
     func getVideo ()
     {
+        ACVideoManager.getVideo(withVideoModel: ACPlayerViewController.videoModel, success: {(videoURL) in
         
-        ACVideoManager.getVideo(withVideoModel: videoModel, success: {
-        
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async
+            {
+                    self.videoURLForPlayer = videoURL
+            }
             
-            
-        }) {( errorCode ) in
+        }) { ( errorCode ) in
         }
-//        ACAccountManager.getAccountItems(success: {
-//            DispatchQueue.main.async
-//            {
-//                    
-//            }
-//        }) { ( errorCode ) in
-//        }
     }
 }

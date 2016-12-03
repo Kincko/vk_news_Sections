@@ -178,27 +178,18 @@ extension ACAccountViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
-        self.performSegue(withIdentifier: "showVideo", sender: indexPath as IndexPath)
-        return nil
-    }
-    
-    func prepare(for segue: UIStoryboardSegue, sender: IndexPath)
-    {
-        let model = ACAccountManager.getCellModel(atIndex: sender.section)
-        let modelForSegue = model.content[sender.row]
+        let model = ACAccountManager.getCellModel(atIndex: indexPath.section)
+        let modelForSegue = model.content[indexPath.row]
         
         if modelForSegue is ACCellVideo
         {
-            if segue.identifier == "showVideo"
-            {
-                let targetVC = segue.destination as! ACPlayerViewController
-                targetVC.videoModel = modelForSegue as! ACCellVideo
-            }
+            ACVideoViewController.videoModel = modelForSegue as! ACCellVideo
+            self.performSegue(withIdentifier: "showVideo", sender: indexPath.row)
+            
         }
+        return nil
     }
 }
-
-
 
 
 
