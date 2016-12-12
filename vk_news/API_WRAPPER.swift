@@ -70,7 +70,7 @@ extension API_WRAPPER
     {
         let argsDictionary = NSMutableDictionary ()
         
-        argsDictionary.setObject("20", forKey: Const.URLConst.Arguments.kCount)
+        argsDictionary.setObject("30", forKey: Const.URLConst.Arguments.kCount)
         argsDictionary.setObject("\(user)", forKey: Const.URLConst.Arguments.kUserChat)
         argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
         
@@ -96,6 +96,64 @@ extension API_WRAPPER
         argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
         
         let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodMessage, withParametrs: argsDictionary)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)
+        }
+        task.resume()
+    }
+}
+
+//MARK отправка сообщения
+extension API_WRAPPER
+{
+    class func sendMessage (withUser users:String, withMessage text:String, successBlock: @escaping (_ jsonResponce: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void)
+    {
+        let argsDictionary = NSMutableDictionary ()
+        
+        argsDictionary.setObject("\(users)", forKey: Const.URLConst.Arguments.kUserChat)
+        argsDictionary.setObject("\(text)", forKey: Const.URLConst.Arguments.kTextMessage)
+        argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
+        
+        let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodSendMessage, withParametrs: argsDictionary)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)
+        }
+        task.resume()
+    }
+}
+
+//MARK LongPoll
+extension API_WRAPPER
+{
+    class func getLongPoll (successBlock: @escaping (_ jsonResponce: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void)
+    {
+        let argsDictionary = NSMutableDictionary ()
+        
+        argsDictionary.setObject("\(1)", forKey: Const.URLConst.Arguments.kNeedPts)
+        argsDictionary.setObject(ACAuthManager.sharedInstance.getAccessToken(), forKey: Const.URLConst.Arguments.kAccessToken)
+        
+        let request = composeGenericHTTPGetRequest(forBaseURL: Const.URLConst.kBaseURL, andMethod: Const.URLConst.Scripts.kMethodLongPollServer, withParametrs: argsDictionary)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)
+        }
+        task.resume()
+    }
+}
+
+
+extension API_WRAPPER
+{
+    class func getRequest(withKey key:String, withServer server:String, withTs ts:String, successBlock: @escaping (_ jsonResponce: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void)
+    {
+        var requestString = "https://\(server)?act=a_check&key=\(key)&ts=\(ts)&wait=25&mode=2&version=1"
+        print("Запрос 2 \(requestString)")
+        let request = NSMutableURLRequest ()
+        
+        request.httpMethod = "GET"
+        request.url = URL(string: requestString)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             genericCompletetionCallback(withResponseData: data, response: response, error: error, successBlock: successBlock, failureBlock: failureBlock)

@@ -16,10 +16,12 @@
 		841D61F81DF02577001D7FAF /* JSQMessagesViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841D61F71DF02577001D7FAF /* JSQMessagesViewController.framework */; };
 		841D61FB1DF025C9001D7FAF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D61FA1DF025C9001D7FAF /* ChatViewController.swift */; };
 		841D61FD1DF038D9001D7FAF /* ACChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D61FC1DF038D9001D7FAF /* ACChatManager.swift */; };
+		842CC7631DF2F0EE0023D959 /* ChatImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CC7621DF2F0EE0023D959 /* ChatImage.swift */; };
 		843DE5F41DE71BB300644639 /* ACDialogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DE5F21DE71BB300644639 /* ACDialogTableViewCell.swift */; };
 		843DE5F51DE71BB300644639 /* ACDialogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843DE5F31DE71BB300644639 /* ACDialogTableViewCell.xib */; };
 		84F4839E1DE9C7AD004ABEAC /* ACAvatarChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4839C1DE9C7AD004ABEAC /* ACAvatarChatCollectionViewCell.swift */; };
 		84F4839F1DE9C7AD004ABEAC /* ACAvatarChatCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F4839D1DE9C7AD004ABEAC /* ACAvatarChatCollectionViewCell.xib */; };
+		84F66AA71DFAF00400E8AAC9 /* LongPoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F66AA61DFAF00400E8AAC9 /* LongPoll.swift */; };
 		84FE95591DE778A3004CA56C /* ACDialogNoReadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE95571DE778A3004CA56C /* ACDialogNoReadTableViewCell.swift */; };
 		84FE955A1DE778A3004CA56C /* ACDialogNoReadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FE95581DE778A3004CA56C /* ACDialogNoReadTableViewCell.xib */; };
 		89143A6C1DD24DB400AD4985 /* ACNewsTableViewCell_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89143A6A1DD24DB400AD4985 /* ACNewsTableViewCell_2.swift */; };
@@ -83,10 +85,12 @@
 		841D61F71DF02577001D7FAF /* JSQMessagesViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQMessagesViewController.framework; path = "Pods/../build/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework"; sourceTree = "<group>"; };
 		841D61FA1DF025C9001D7FAF /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		841D61FC1DF038D9001D7FAF /* ACChatManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACChatManager.swift; sourceTree = "<group>"; };
+		842CC7621DF2F0EE0023D959 /* ChatImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatImage.swift; sourceTree = "<group>"; };
 		843DE5F21DE71BB300644639 /* ACDialogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACDialogTableViewCell.swift; sourceTree = "<group>"; };
 		843DE5F31DE71BB300644639 /* ACDialogTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACDialogTableViewCell.xib; sourceTree = "<group>"; };
 		84F4839C1DE9C7AD004ABEAC /* ACAvatarChatCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACAvatarChatCollectionViewCell.swift; sourceTree = "<group>"; };
 		84F4839D1DE9C7AD004ABEAC /* ACAvatarChatCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAvatarChatCollectionViewCell.xib; sourceTree = "<group>"; };
+		84F66AA61DFAF00400E8AAC9 /* LongPoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongPoll.swift; sourceTree = "<group>"; };
 		84FE95571DE778A3004CA56C /* ACDialogNoReadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACDialogNoReadTableViewCell.swift; sourceTree = "<group>"; };
 		84FE95581DE778A3004CA56C /* ACDialogNoReadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACDialogNoReadTableViewCell.xib; sourceTree = "<group>"; };
 		89143A6A1DD24DB400AD4985 /* ACNewsTableViewCell_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNewsTableViewCell_2.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 				840B8C831DE5CB98006D548D /* ACDialogManagers.swift */,
 				841D61FC1DF038D9001D7FAF /* ACChatManager.swift */,
 				8932D0151DCDF79D00CA29B5 /* API_WRAPPER.swift */,
+				84F66AA61DFAF00400E8AAC9 /* LongPoll.swift */,
 			);
 			name = managers;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				899415BC1DCE0A0E000186E6 /* ACNews.swift */,
+				842CC7621DF2F0EE0023D959 /* ChatImage.swift */,
 				840B8C851DE5CC19006D548D /* ACDialog.swift */,
 				89D197AE1DE09B4E0042425C /* ACBaseItem.swift */,
 				89D197B01DE09B7F0042425C /* ACNewsItem.swift */,
@@ -593,8 +599,10 @@
 				897275231DBFD5B500CD8FC3 /* AppDelegate.swift in Sources */,
 				841D61FB1DF025C9001D7FAF /* ChatViewController.swift in Sources */,
 				89D197AF1DE09B4E0042425C /* ACBaseItem.swift in Sources */,
+				842CC7631DF2F0EE0023D959 /* ChatImage.swift in Sources */,
 				89D197B11DE09B7F0042425C /* ACNewsItem.swift in Sources */,
 				89143A7B1DD4DDA400AD4985 /* ACNewsTableViewCell_3.swift in Sources */,
+				84F66AA71DFAF00400E8AAC9 /* LongPoll.swift in Sources */,
 				843DE5F41DE71BB300644639 /* ACDialogTableViewCell.swift in Sources */,
 				89D197B71DE09C7D0042425C /* ACNewsHeader.swift in Sources */,
 				89D197B91DE09CF80042425C /* ACNewsFooter.swift in Sources */,

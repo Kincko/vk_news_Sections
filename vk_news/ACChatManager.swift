@@ -23,6 +23,11 @@ class ACChatManager
     {
         return messagesArray
     }
+    
+    class func clearArray ()
+    {
+        messagesArray.removeAll()
+    }
 }
 
 //MARK: загрузка данных из интернета
@@ -45,8 +50,7 @@ extension ACChatManager
                 let senderId = String(message["out"].int64Value)
                 let displayName = "Имя Фамилия"
                 let text = message["body"].stringValue
-                var check = 1
-                /*
+                
                 if text == ""
                 {
                     let attachment = message["attachment"].dictionary
@@ -63,23 +67,9 @@ extension ACChatManager
                         let photoAttachment = attachment?["photo"]?.dictionary
                         let photoURL = photoAttachment?["src_big"]?.stringValue
                         let imageURL = URL(string: photoURL!)
-                        let photo = UIImage()
-                        //let photoManager = SDWebImageManager()
-                        //photoManager.saveImage(toCache: photo, for: url)
-                        var manager:SDWebImageManager = SDWebImageManager.shared()
-                        manager.downloadImage(with: imageURL,
-                                                          options: SDWebImageOptions.highPriority,
-                                                          progress: nil,
-                                                          completed: {[] (image, error, cached, finished, url) in
-                                                            if (error == nil && (image != nil) && finished) {
-                                                                // do something with image
-                                                                
-                                                                messagesArray.append(JSQMessage(senderId: senderId, displayName: displayName, media: JSPhoto))
-                                                                check = 0
-                                                            }
-                        })
-                        
-                        let JSPhoto = JSQPhotoMediaItem(
+                        let JSPhoto = ChatImage(PhotoURL: imageURL!, senderId: senderId)
+                        messagesArray.append(JSQMessage(senderId: senderId, displayName: displayName, media: JSPhoto))
+                        continue
                     }
                     
                     if type == "video"
@@ -89,14 +79,24 @@ extension ACChatManager
                     
                     
                 }
-                */
-                if check == 1
-                {
+                
+                
                 messagesArray.append(JSQMessage(senderId: senderId, displayName: displayName, text: text))
-                }
+                
             }
             
             messagesArray = messagesArray.reversed()
+            
+            success()
+            
+            
+        }, failureBlock: failure)
+    }
+    
+    class func sendMessages (withUser user: String, withMessage text: String, success: @escaping () -> Void, failure: @escaping (_ errorCode: Int) -> Void) -> Void
+    {
+        API_WRAPPER.sendMessage(withUser: user, withMessage: text, successBlock: { (jsonResponse) in
+            
             
             success()
             

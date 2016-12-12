@@ -12,12 +12,13 @@ import JSQMessagesViewController
 class ChatViewController: JSQMessagesViewController {
 
     var messages = ACChatManager.model()
+    static var userID:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.senderId = "0"
+        self.senderId = "1"
         self.senderDisplayName = "UserName"
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -28,10 +29,22 @@ class ChatViewController: JSQMessagesViewController {
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!)
     {
-        print("\(text)")
-        messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text))
-        collectionView.reloadData()
+        
+        var textMessage = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        ACChatManager.sendMessages(withUser: ChatViewController.userID, withMessage: textMessage!,  success: {
+            DispatchQueue.main.async
+                {
+                    print("\(textMessage)")
+                    self.messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text))
+                    self.finishSendingMessage()
+            }
+        }) { (errorCode) in
+            
+        }
+        
     }
+    
+    
 
 }
 
@@ -53,7 +66,7 @@ extension ChatViewController
     {
         //let bubleFactory = JSQMessagesBubbleImageFactory()
         //return bubleFactory?.incomingMessagesBubbleImage(with: UIColor.black)
-        if messages[indexPath.row].senderId == "1"
+        if messages[indexPath.row].senderId == "0"
         {
             let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImage(with: UIColor(red: 10/255, green: 180/255, blue: 230/255, alpha: 1.0))
             return incomingBubble

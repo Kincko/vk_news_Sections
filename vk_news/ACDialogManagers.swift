@@ -21,6 +21,11 @@ class ACDialogManager
     {
         return dialogArray[index]
     }
+    
+    class func clearArray ()
+    {
+        dialogArray.removeAll()
+    }
 }
 
 //MARK: загрузка данных из интернета
@@ -157,5 +162,63 @@ extension ACDialogManager
             
             }, failureBlock: failure)
     
+    }
+    
+    
+    class func getLongPoll (success: @escaping () -> Void, failure: @escaping (_ errorCode: Int) -> Void) -> Void
+    {
+        
+        API_WRAPPER.getLongPoll(successBlock: { (jsonResponse) in
+            
+            let ArrayJson = jsonResponse["response"].dictionaryValue
+            
+
+                LongPoll.key = (ArrayJson["key"]?.stringValue)!
+                LongPoll.server = (ArrayJson["server"]?.stringValue)!
+                let ts = ArrayJson["ts"]?.int64Value
+                let ts2 = Int(ts!)
+                LongPoll.ts = String(ts2)
+    
+            
+            success()
+            
+        }, failureBlock: failure)
+        
+    }
+    
+    class func getRequest (withKey key:String, withServer server:String, withTs ts:String, success: @escaping () -> Void, failure: @escaping (_ errorCode: Int) -> Void) -> Void
+    {
+        
+        API_WRAPPER.getRequest(withKey: key, withServer: server, withTs: ts, successBlock: { (jsonResponse) in
+            
+            //let jsonArray = jsonResponse["response"].dictionaryValue
+            
+                let error = jsonResponse["failed"].stringValue
+                if error == ""
+                {
+                    print("Ошибок нет")
+                    let ts = jsonResponse["ts"].int64Value
+                    let ts2 = Int(ts)
+                    LongPoll.ts = String(ts2)
+                    let arrayUpdates = jsonResponse["updates"].arrayValue
+                    
+                    for updates in arrayUpdates
+                    {
+                        let arrayMessage = updates[0]
+                        if arrayMessage == 4
+                        {
+                            print("Новое сообщение")
+                            
+                        }
+                    }
+                    
+                    
+                }
+                success()
+            
+            
+           
+        }, failureBlock: failure)
+        
     }
 }

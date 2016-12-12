@@ -61,6 +61,7 @@ extension ACMessagesViewController
 {
     func getDialogs()
     {
+        ACDialogManager.clearArray()
         ACDialogManager.getMDialog(withCount: 10, success: {
             DispatchQueue.main.async
                 {
@@ -119,9 +120,12 @@ extension ACMessagesViewController: UITableViewDataSource, UITableViewDelegate
     {
         let model = ACDialogManager.model(atIndex: indexPath.row)
         let user = model.userID
+        ACChatManager.clearArray()
         ACChatManager.getChatMessages(withUser: user, success: {
             DispatchQueue.main.async
                 {
+                    ChatViewController.userID = user
+                    LongPoll.getLongPoll()
                     self.performSegue(withIdentifier: "ShowMessageViewController", sender: self)
             }
         }) { (errorCode) in

@@ -20,6 +20,8 @@ class Const
             static let kMethodMessage = "messages.getDialogs"
             static let kMethodUser = "users.get"
             static let kMethodUserChat = "messages.getHistory"
+            static let kMethodSendMessage = "messages.send"
+            static let kMethodLongPollServer = "messages.getLongPollServer"
         }
         
         class Arguments
@@ -30,6 +32,8 @@ class Const
             static let kFields : NSString = "fields"
             static let kAccessToken: NSString = "access_token"
             static let kUserChat : NSString = "user_id"
+            static let kTextMessage : NSString = "message"
+            static let kNeedPts : NSString = "need_pts"
         }
     }
     
