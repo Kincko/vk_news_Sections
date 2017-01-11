@@ -8,28 +8,129 @@
 
 import UIKit
 
-class ACMessagesViewController: UIViewController {
+private let kpostsCellXIBName = "ACDialogTableViewCell"
+private let kPostsCellIndentifier = "kPostsCellIdentifier"
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+private let kpostsCellXIBName1 = "ACDialogNoReadTableViewCell"
+private let kPostsCellIndentifier1 = "kPostsCellIdentifier1"
 
-        // Do any additional setup after loading the view.
-    }
+class ACMessagesViewController: UIViewController
+{
+    @IBOutlet weak var tableView: UITableView!
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//MARK: - жизненный цикл
+extension ACMessagesViewController
+{
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        authorize()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        self.tableView.register(UINib(nibName: kpostsCellXIBName, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier)
+        self.tableView.register(UINib(nibName: kpostsCellXIBName1, bundle: nil), forCellReuseIdentifier: kPostsCellIndentifier1)
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
-    */
+}
 
+//MARK: - авторизация
+extension ACMessagesViewController
+{
+    func authorize ()
+    {
+        ACAuthManager.sharedInstance.login(withUnderlayController: self, success: {
+            
+            self.getDialogs()
+            
+        }, failure: {
+            
+        })
+    }
+}
+
+//MARK:получение данных
+extension ACMessagesViewController
+{
+    func getDialogs()
+    {
+        ACDialogManager.clearArray()
+        ACDialogManager.getMDialog(withCount: 10, success: {
+            DispatchQueue.main.async
+                {
+                    self.tableView.reloadData()
+            }
+        }) { (errorCode) in
+            
+        }
+    }
+}
+
+//MARK: реализация процедуры интерфейса UITableViewDataSource
+extension ACMessagesViewController: UITableViewDataSource, UITableViewDelegate
+{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return ACDialogManager.getNumberOfCells()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let model = ACDialogManager.model(atIndex: indexPath.row)
+        if model.read == 1     //Если прочитано
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier, for: indexPath) as! ACDialogTableViewCell
+            cell.configureSelf(withDataModel: model)
+            cell.backgroundLabel(color: UIColor.clear)
+            return cell
+        }
+        else
+        {
+            if model.out == 0    //Если не прочитано
+            {
+                let cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier1, for: indexPath) as! ACDialogNoReadTableViewCell
+                cell.configureSelf(withDataModel: model)
+                return cell
+            }
+            else   //Если отправлено мной и еще не прочитали
+            {
+                let cell = tableView.dequeueReusableCell(withIdentifier: kPostsCellIndentifier, for: indexPath) as! ACDialogTableViewCell
+                cell.configureSelf(withDataModel: model)
+                cell.backgroundLabel(color: UIColor.groupTableViewBackground)
+//                print("Сообщение: \(model.message)")
+                return cell
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 100.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let model = ACDialogManager.model(atIndex: indexPath.row)
+        let user = model.userID
+        ACChatManager.clearArray()
+        ACChatManager.getChatMessages(withUser: user, success: {
+            DispatchQueue.main.async
+                {
+                    ChatViewController.userID = user
+                    LongPoll.getLongPoll()
+                    self.performSegue(withIdentifier: "ShowMessageViewController", sender: self)
+            }
+        }) { (errorCode) in
+            
+        }
+    }
+    
 }

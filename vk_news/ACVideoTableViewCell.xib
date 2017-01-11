@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="269.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QpP-dn-wBR">
@@ -55,14 +55,24 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqK-V6-euG">
+                        <rect key="frame" x="135" y="96" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="DoA-dI-c9I"/>
+                            <constraint firstAttribute="height" constant="50" id="jvJ-tK-kOf"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="play"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="ykz-kv-vEZ" secondAttribute="trailing" id="2r3-QG-luO"/>
+                    <constraint firstItem="fqK-V6-euG" firstAttribute="centerX" secondItem="QpP-dn-wBR" secondAttribute="centerX" id="3b8-Za-sS9"/>
                     <constraint firstAttribute="trailingMargin" secondItem="QpP-dn-wBR" secondAttribute="trailing" constant="-8" id="BMQ-qZ-Kyf"/>
                     <constraint firstItem="eaO-rd-RuV" firstAttribute="top" secondItem="QpP-dn-wBR" secondAttribute="bottom" constant="3" id="Fs1-VN-Brh"/>
                     <constraint firstItem="hM6-Bx-EgZ" firstAttribute="leading" secondItem="eaO-rd-RuV" secondAttribute="trailing" constant="27" id="KW1-IK-nUt"/>
                     <constraint firstAttribute="trailingMargin" secondItem="hM6-Bx-EgZ" secondAttribute="trailing" id="Oca-An-kVc"/>
                     <constraint firstItem="QpP-dn-wBR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="TGQ-na-rE1"/>
+                    <constraint firstItem="fqK-V6-euG" firstAttribute="centerY" secondItem="QpP-dn-wBR" secondAttribute="centerY" id="Tab-ug-57Y"/>
                     <constraint firstAttribute="leadingMargin" secondItem="eaO-rd-RuV" secondAttribute="leading" id="Twf-fY-uBd"/>
                     <constraint firstItem="hM6-Bx-EgZ" firstAttribute="centerY" secondItem="eaO-rd-RuV" secondAttribute="centerY" id="Ul5-Il-vkZ"/>
                     <constraint firstItem="ykz-kv-vEZ" firstAttribute="top" secondItem="eaO-rd-RuV" secondAttribute="bottom" id="Wog-WE-tZL"/>
@@ -73,6 +83,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="descriptionText" destination="ykz-kv-vEZ" id="7H3-83-A7H"/>
+                <outlet property="playButton" destination="fqK-V6-euG" id="a6E-HE-8aM"/>
                 <outlet property="title" destination="eaO-rd-RuV" id="p6Q-td-W0j"/>
                 <outlet property="videoPlaceHolder" destination="QpP-dn-wBR" id="05A-tr-Hf6"/>
                 <outlet property="views" destination="hM6-Bx-EgZ" id="vaN-x0-azw"/>
@@ -80,4 +91,7 @@
             <point key="canvasLocation" x="34" y="147"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="play" width="512" height="512"/>
+    </resources>
 </document>

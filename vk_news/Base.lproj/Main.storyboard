@@ -4,30 +4,80 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Сообщения-->
-        <scene sceneID="eZr-fW-uOv">
+        <!--Диалоги-->
+        <scene sceneID="Mf2-vi-ggD">
             <objects>
-                <viewController id="9Co-7o-MOI" customClass="ACMessagesViewController" customModule="vk_news" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="d0u-uT-4rN" customClass="ACMessagesViewController" customModule="vk_news" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RSW-NT-zQY"/>
-                        <viewControllerLayoutGuide type="bottom" id="bcm-uQ-1sl"/>
+                        <viewControllerLayoutGuide type="top" id="9xU-fA-43E"/>
+                        <viewControllerLayoutGuide type="bottom" id="0ps-vK-ZRk"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bKR-Q8-6dU">
+                    <view key="view" contentMode="scaleToFill" id="BZN-9r-EFg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lNN-cW-6kX">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lNN-cW-6kX" secondAttribute="trailing" id="IQx-cI-1l2"/>
+                            <constraint firstItem="lNN-cW-6kX" firstAttribute="top" secondItem="9xU-fA-43E" secondAttribute="bottom" id="JBk-T0-Byt"/>
+                            <constraint firstItem="0ps-vK-ZRk" firstAttribute="top" secondItem="lNN-cW-6kX" secondAttribute="bottom" id="Pob-zQ-imH"/>
+                            <constraint firstItem="lNN-cW-6kX" firstAttribute="leading" secondItem="BZN-9r-EFg" secondAttribute="leading" id="blA-uA-c9e"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Диалоги" id="2fE-DO-ssG"/>
+                    <connections>
+                        <outlet property="tableView" destination="lNN-cW-6kX" id="ofl-xz-Wc8"/>
+                        <segue destination="HOY-Po-BEI" kind="show" identifier="ShowMessageViewController" id="tOD-yU-Ih5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eOb-wK-lvE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="79.200000000000003" y="207.34632683658174"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="jPR-Li-Vnj">
+            <objects>
+                <viewController id="HOY-Po-BEI" customClass="ChatViewController" customModule="vk_news" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Csy-zI-df3"/>
+                        <viewControllerLayoutGuide type="bottom" id="cjF-NX-eKq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KbU-iP-hPb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Сообщения" image="message" id="gOm-c6-JO4"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MAV-hd-hiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xgr-2R-75L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-722" y="199"/>
+            <point key="canvasLocation" x="921" y="207"/>
+        </scene>
+        <!--Сообщения-->
+        <scene sceneID="sDc-sh-cbE">
+            <objects>
+                <navigationController id="DjR-7h-ukf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Сообщения" image="message" id="Dvr-Fs-7Ff"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sij-k0-PQX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="d0u-uT-4rN" kind="relationship" relationship="rootViewController" id="Hrx-4P-oxc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9hk-Fj-Vmo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-722" y="208"/>
         </scene>
         <!--Друзья-->
         <scene sceneID="TrJ-Cx-MIw">
@@ -76,7 +126,6 @@
                     <tabBarItem key="tabBarItem" title="Мой профиль" image="accaunt" id="yap-by-ojX"/>
                     <connections>
                         <outlet property="tableView" destination="9yp-ho-l8r" id="ncJ-hn-tLC"/>
-                        <segue destination="ygL-ll-EWH" kind="show" identifier="showVideo" id="QV0-Ni-1u8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0u7-9V-7oI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -117,24 +166,6 @@
             </objects>
             <point key="canvasLocation" x="-722.39999999999998" y="-485.30734632683664"/>
         </scene>
-        <!--Video View Controller-->
-        <scene sceneID="gA0-HQ-pIE">
-            <objects>
-                <viewController id="ygL-ll-EWH" customClass="ACVideoViewController" customModule="vk_news" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XGL-Iu-kkX"/>
-                        <viewControllerLayoutGuide type="bottom" id="t7I-y5-Gza"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="10r-cM-RBA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DgY-wT-xp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2220" y="1329"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wMN-JE-oMR">
             <objects>
@@ -146,9 +177,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="peJ-Cy-1kF" kind="relationship" relationship="viewControllers" id="xfa-l3-WFV"/>
-                        <segue destination="9Co-7o-MOI" kind="relationship" relationship="viewControllers" id="axA-kE-fIP"/>
                         <segue destination="2vM-Pk-u3n" kind="relationship" relationship="viewControllers" id="fQ0-YX-KpC"/>
                         <segue destination="SwU-f0-OGu" kind="relationship" relationship="viewControllers" id="4cs-jz-hzq"/>
+                        <segue destination="DjR-7h-ukf" kind="relationship" relationship="viewControllers" id="PoI-O7-LWo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R7f-0u-1y5" userLabel="First Responder" sceneMemberID="firstResponder"/>

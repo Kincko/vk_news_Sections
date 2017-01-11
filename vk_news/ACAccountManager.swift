@@ -27,7 +27,7 @@ class ACAccountManager
     class func getCellModel (atIndex index: Int) -> ACWallPost
     {
         return accountItems[index] as! ACWallPost
-    }    
+    }
 }
 
 //MARK: загрузка с божьей помощью данных из греховного интернета для богомерзкой шапки профиля
@@ -41,174 +41,174 @@ extension ACAccountManager
         
         if accountItems.count == 0
         {
-        
-        API_WRAPPER.getAccountInfo(successBlock: { (jsonResponse) in
             
-            let rawresponse = jsonResponse["response"].arrayValue
-            
-            let response = rawresponse[0]
-            
-            let uId = response["uid"].int64Value
-            let firstName = response["first_name"].stringValue
-            let lastName = response["last_name"].stringValue
-            let bDate = response["bdate"].stringValue
-            let cityId = response["city"].int64Value
-            let avatarURL = response["photo_100"].stringValue
-            let fullCounters = response["counters"].dictionaryValue
-        
-            let counters = NSMutableDictionary()
-            
-            counters.setObject(fullCounters["friends"]!.stringValue, forKey: NSString(string: "friends"))
-            counters.setObject(fullCounters["subscriptions"]!.stringValue, forKey: NSString(string: "subs"))
-            counters.setObject(fullCounters["groups"]!.stringValue, forKey: NSString(string: "groups"))
-            counters.setObject(fullCounters["photos"]!.stringValue, forKey: NSString(string: "photos"))
-            
-            
-            API_WRAPPER.getWall(successBlock: { (jsonResponse) in
+            API_WRAPPER.getAccountInfo(successBlock: { (jsonResponse) in
                 
-                let response = jsonResponse["response"]
+                let rawresponse = jsonResponse["response"].arrayValue
                 
-                let wallPosts = response["wall"].arrayValue
-                let profilesArray = response["profiles"].arrayValue
-                let groupsArray = response["groups"].arrayValue
+                let response = rawresponse[0]
                 
-                let sourceDictionary = NSMutableDictionary()
+                let uId = response["uid"].int64Value
+                let firstName = response["first_name"].stringValue
+                let lastName = response["last_name"].stringValue
+                let bDate = response["bdate"].stringValue
+                let cityId = response["city"].int64Value
+                let avatarURL = response["photo_100"].stringValue
+                let fullCounters = response["counters"].dictionaryValue
                 
-                for profile in profilesArray
-                {
-                    sourceDictionary.setObject(profile, forKey: NSString(string: "\(profile["uid"].int64Value)"))
-                }
+                let counters = NSMutableDictionary()
                 
-                for group in groupsArray
-                {
-                    sourceDictionary.setObject(group, forKey: NSString(string: "-\(group["gid"].int64Value)"))
-                }
+                counters.setObject(fullCounters["friends"]!.stringValue, forKey: NSString(string: "friends"))
+                counters.setObject(fullCounters["subscriptions"]!.stringValue, forKey: NSString(string: "subs"))
+                counters.setObject(fullCounters["groups"]!.stringValue, forKey: NSString(string: "groups"))
+                counters.setObject(fullCounters["photos"]!.stringValue, forKey: NSString(string: "photos"))
                 
-                var content = [ACBaseItem]()
                 
-                for i in 1..<wallPosts.count
-                {
-                    let post = wallPosts[i]
-                    let postId = post["id"].stringValue
-                    let postType = post["post_type"].stringValue
-                    let sourceId = post["from_id"].int64Value
-                    if let sourceJSON = sourceDictionary["\(sourceId)"] as? JSON
+                API_WRAPPER.getWall(successBlock: { (jsonResponse) in
+                    
+                    let response = jsonResponse["response"]
+                    
+                    let wallPosts = response["wall"].arrayValue
+                    let profilesArray = response["profiles"].arrayValue
+                    let groupsArray = response["groups"].arrayValue
+                    
+                    let sourceDictionary = NSMutableDictionary()
+                    
+                    for profile in profilesArray
                     {
-                    //если пост - добавляем пост хедер (пока screen_name)
-                    if postType == "post"
-                    {
-                        let sourceName = sourceJSON["screen_name"].stringValue
-                        let sourceImage = sourceJSON["photo"]
-                            .stringValue
-                        
-                        let source = ACCellSource(WithSourceID: sourceId, sourceName: sourceName, sourceImage: sourceImage)
-                        let postHeader = ACCellHeader(cellId: 42, source: source)
-                        content.append(postHeader)
+                        sourceDictionary.setObject(profile, forKey: NSString(string: "\(profile["uid"].int64Value)"))
                     }
                     
-                    //если пост - перепост
-                    if postType == "copy"
+                    for group in groupsArray
                     {
-                        let sourceName = sourceJSON["screen_name"].stringValue
-                        let sourceImage = sourceJSON["photo"]
-                            .stringValue
-                        
-                        let copySourceId = post["copy_owner_id"].int64Value
-                        
-                        let copySourceJSON = sourceDictionary["\(copySourceId)"] as! JSON
-                        
-                        let copySourceName = copySourceJSON["name"].stringValue
-                        let copySourceImage = copySourceJSON["photo_100"].stringValue
-                        
-                        let source = ACCellSource(WithSourceID: sourceId, sourceName: sourceName, sourceImage: sourceImage)
-                        
-                        let copySource = ACCellSource(WithSourceID: copySourceId, sourceName: copySourceName, sourceImage: copySourceImage)
-                        
-                        let postHeader = ACCellHeader(cellId: 42, source: source)
-                        let postCopySource = ACWallPostCopyHeader(cellId: 43, copySource: copySource)
-                        
-                        content.append(postHeader)
-                        content.append(postCopySource)
-                    }
-                    }
-                    let postText = post["text"].stringValue
-                    if postText != ""
-                    {
-                        let text = ACCellText(WithCellID: 44, text: postText)
-                        content.append(text)
+                        sourceDictionary.setObject(group, forKey: NSString(string: "-\(group["gid"].int64Value)"))
                     }
                     
-                    let postAttachment = post["attachment"].dictionaryValue
+                    var content = [ACBaseItem]()
                     
-                    let attachmentType = postAttachment["type"]?.stringValue
-                    
-                    if attachmentType == "video"
+                    for i in 1..<wallPosts.count
                     {
-                        let postVideo = postAttachment["video"]?.dictionaryValue
-                        let ownerId = postVideo?["owner_id"]?.int64Value
-                        let vId = postVideo?["vid"]?.int64Value
-                        let title = postVideo?["title"]?.stringValue
-                        let description = postVideo?["description"]?.stringValue
-                        let views = postVideo?["views"]?.int64Value
-                        let placeHolderURL = postVideo?["image"]?.stringValue
-                        
-                        if let accessKey = postVideo?["access_key"]?.stringValue
+                        let post = wallPosts[i]
+                        let postId = post["id"].stringValue
+                        let postType = post["post_type"].stringValue
+                        let sourceId = post["from_id"].int64Value
+                        if let sourceJSON = sourceDictionary["\(sourceId)"] as? JSON
                         {
-                            let video = ACCellVideo(ownerId: ownerId!, vId: vId!, title: title!, description: description!, views: views!, placeHolderURL: placeHolderURL!, accessKey: accessKey)
-                            content.append(video)
+                            //если пост - добавляем пост хедер (пока screen_name)
+                            if postType == "post"
+                            {
+                                let sourceName = sourceJSON["screen_name"].stringValue
+                                let sourceImage = sourceJSON["photo"]
+                                    .stringValue
+                                
+                                let source = ACCellSource(WithSourceID: sourceId, sourceName: sourceName, sourceImage: sourceImage)
+                                let postHeader = ACCellHeader(cellId: 42, source: source)
+                                content.append(postHeader)
+                            }
+                            
+                            //если пост - перепост
+                            if postType == "copy"
+                            {
+                                let sourceName = sourceJSON["screen_name"].stringValue
+                                let sourceImage = sourceJSON["photo"]
+                                    .stringValue
+                                
+                                let copySourceId = post["copy_owner_id"].int64Value
+                                
+                                let copySourceJSON = sourceDictionary["\(copySourceId)"] as! JSON
+                                
+                                let copySourceName = copySourceJSON["name"].stringValue
+                                let copySourceImage = copySourceJSON["photo_100"].stringValue
+                                
+                                let source = ACCellSource(WithSourceID: sourceId, sourceName: sourceName, sourceImage: sourceImage)
+                                
+                                let copySource = ACCellSource(WithSourceID: copySourceId, sourceName: copySourceName, sourceImage: copySourceImage)
+                                
+                                let postHeader = ACCellHeader(cellId: 42, source: source)
+                                let postCopySource = ACWallPostCopyHeader(cellId: 43, copySource: copySource)
+                                
+                                content.append(postHeader)
+                                content.append(postCopySource)
+                            }
                         }
-                        else
+                        let postText = post["text"].stringValue
+                        if postText != ""
                         {
-                            let video = ACCellVideo(ownerId: ownerId!, vId: vId!, title: title!, description: description!, views: views!, placeHolderURL: placeHolderURL!, accessKey: "")
-                            content.append(video)
+                            let text = ACCellText(WithCellID: 44, text: postText)
+                            content.append(text)
                         }
+                        
+                        let postAttachment = post["attachment"].dictionaryValue
+                        
+                        let attachmentType = postAttachment["type"]?.stringValue
+                        
+                        if attachmentType == "video"
+                        {
+                            let postVideo = postAttachment["video"]?.dictionaryValue
+                            let ownerId = postVideo?["owner_id"]?.int64Value
+                            let vId = postVideo?["vid"]?.int64Value
+                            let title = postVideo?["title"]?.stringValue
+                            let description = postVideo?["description"]?.stringValue
+                            let views = postVideo?["views"]?.int64Value
+                            let placeHolderURL = postVideo?["image"]?.stringValue
+                            
+                            if let accessKey = postVideo?["access_key"]?.stringValue
+                            {
+                                let video = ACCellVideo(ownerId: ownerId!, vId: vId!, title: title!, description: description!, views: views!, placeHolderURL: placeHolderURL!, accessKey: accessKey)
+                                content.append(video)
+                            }
+                            else
+                            {
+                                let video = ACCellVideo(ownerId: ownerId!, vId: vId!, title: title!, description: description!, views: views!, placeHolderURL: placeHolderURL!, accessKey: "")
+                                content.append(video)
+                            }
+                        }
+                        
+                        let postImages = postAttachment["photo"]?.dictionaryValue
+                        let postImage = postImages?["src_big"]?.stringValue
+                        
+                        if postImages != nil
+                        {
+                            let image = ACCellImage(WithCellID: 45, imageURL: postImage!)
+                            content.append(image)
+                        }
+                        
+                        let postLikes = post["likes"].dictionaryValue
+                        let postLikesCount = postLikes["count"]!.int64Value
+                        let footer = ACCellFooter(WithCellID: 46, newsLikesCount: postLikesCount)
+                        
+                        content.append(footer)
+//                        print("количество в секции - \(content.count)")
+                        
+                        let localWallPost = ACWallPost(postId: postId, content: content)
+                        accountItems.append(localWallPost)
+                        
+                        content.removeAll()
                     }
                     
-                    let postImages = postAttachment["photo"]?.dictionaryValue
-                    let postImage = postImages?["src_big"]?.stringValue
+                    var cityName = " "
                     
-                    if postImages != nil
-                    {
-                        let image = ACCellImage(WithCellID: 45, imageURL: postImage!)
-                        content.append(image)
-                    }
-                    
-                    let postLikes = post["likes"].dictionaryValue
-                    let postLikesCount = postLikes["count"]!.int64Value
-                    let footer = ACCellFooter(WithCellID: 46, newsLikesCount: postLikesCount)
-                    
-                    content.append(footer)
-                    print("количество в секции - \(content.count)")
-                
-                    let localWallPost = ACWallPost(postId: postId, content: content)
-                    accountItems.append(localWallPost)
-                    
-                    content.removeAll()
-                }
-                
-                var cityName = " "
-                
-                API_WRAPPER.getCityTitle(forCityId: cityId, successBlock: { (jsonResponse) in
-                    
-                    let response = jsonResponse["response"].arrayValue
-                    let cityDict = response[0].dictionaryValue
-                    cityName = cityDict["name"]!.stringValue
-                    let accountInfo = ACAccount(cellId: 41, uId: uId, firstName: firstName, lastName: lastName, bDate: bDate, cityName: cityName, avatarURL: avatarURL, counters: counters)
-                    
-                    var tempArrayForAccountInfo = [ACBaseItem]()
-                    tempArrayForAccountInfo.append(accountInfo)
-                    
-                    let account = ACWallPost(postId: "info", content: tempArrayForAccountInfo)
-                    
-                    accountItems.insert(account, at: 0)
-                    
-                    success()
+                    API_WRAPPER.getCityTitle(forCityId: cityId, successBlock: { (jsonResponse) in
+                        
+                        let response = jsonResponse["response"].arrayValue
+                        let cityDict = response[0].dictionaryValue
+                        cityName = cityDict["name"]!.stringValue
+                        let accountInfo = ACAccount(cellId: 41, uId: uId, firstName: firstName, lastName: lastName, bDate: bDate, cityName: cityName, avatarURL: avatarURL, counters: counters)
+                        
+                        var tempArrayForAccountInfo = [ACBaseItem]()
+                        tempArrayForAccountInfo.append(accountInfo)
+                        
+                        let account = ACWallPost(postId: "info", content: tempArrayForAccountInfo)
+                        
+                        accountItems.insert(account, at: 0)
+                        
+                        success()
+                        
+                    }, failureBlock: failure)
                     
                 }, failureBlock: failure)
-        
+                
             }, failureBlock: failure)
-            
-        }, failureBlock: failure)
         }
     }
 }
