@@ -221,7 +221,8 @@ extension API_WRAPPER
 //MARK: получение информации со стены
 extension API_WRAPPER
 {
-    class func getWall (successBlock: @escaping (_ jsonResponse: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void)
+    class func getWall (successBlock: @escaping (_ jsonResponse: JSON) -> Void, failureBlock: @escaping (_ errorCode: Int) -> Void) -> URLSessionDataTask
+
     {
         let argsDictionary = NSMutableDictionary ()
         
@@ -236,6 +237,7 @@ extension API_WRAPPER
         }
         
         task.resume()
+        return task
     }
 }
 

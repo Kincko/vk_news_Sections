@@ -74,8 +74,9 @@
 		8972752D1DBFD5B500CD8FC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8972752B1DBFD5B500CD8FC3 /* LaunchScreen.storyboard */; };
 		897275381DBFD5B500CD8FC3 /* vk_newsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897275371DBFD5B500CD8FC3 /* vk_newsTests.swift */; };
 		897275431DBFD5B500CD8FC3 /* vk_newsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897275421DBFD5B500CD8FC3 /* vk_newsUITests.swift */; };
-		897AB29C1E1A6BA300A22887 /* AccountGetOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB29B1E1A6BA300A22887 /* AccountGetOperation.swift */; };
+		897AB29C1E1A6BA300A22887 /* GetAccountInfoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB29B1E1A6BA300A22887 /* GetAccountInfoOperation.swift */; };
 		899415BD1DCE0A0E000186E6 /* ACNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899415BC1DCE0A0E000186E6 /* ACNews.swift */; };
+		89BD09B31E27E90E0067E6EA /* GetWallOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD09B21E27E90E0067E6EA /* GetWallOperation.swift */; };
 		89BFAB6E1E0FF5E700394F02 /* OperationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFAB6D1E0FF5E700394F02 /* OperationsManager.swift */; };
 		89D197A81DE058400042425C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89D197A71DE058400042425C /* Assets.xcassets */; };
 		89D197AC1DE05D7A0042425C /* ACNewsTableViewCell_99.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D197AA1DE05D7A0042425C /* ACNewsTableViewCell_99.swift */; };
@@ -180,8 +181,9 @@
 		8972753E1DBFD5B500CD8FC3 /* vk_newsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vk_newsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		897275421DBFD5B500CD8FC3 /* vk_newsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vk_newsUITests.swift; sourceTree = "<group>"; };
 		897275441DBFD5B500CD8FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		897AB29B1E1A6BA300A22887 /* AccountGetOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountGetOperation.swift; sourceTree = "<group>"; };
+		897AB29B1E1A6BA300A22887 /* GetAccountInfoOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAccountInfoOperation.swift; sourceTree = "<group>"; };
 		899415BC1DCE0A0E000186E6 /* ACNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNews.swift; sourceTree = "<group>"; };
+		89BD09B21E27E90E0067E6EA /* GetWallOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetWallOperation.swift; sourceTree = "<group>"; };
 		89BFAB6D1E0FF5E700394F02 /* OperationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationsManager.swift; sourceTree = "<group>"; };
 		89D197A71DE058400042425C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89D197AA1DE05D7A0042425C /* ACNewsTableViewCell_99.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNewsTableViewCell_99.swift; sourceTree = "<group>"; };
@@ -345,7 +347,8 @@
 			isa = PBXGroup;
 			children = (
 				8919B2FD1E0FFE6300AE9AA3 /* NewsfeedGetOperation.swift */,
-				897AB29B1E1A6BA300A22887 /* AccountGetOperation.swift */,
+				897AB29B1E1A6BA300A22887 /* GetAccountInfoOperation.swift */,
+				89BD09B21E27E90E0067E6EA /* GetWallOperation.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -848,6 +851,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89BD09B31E27E90E0067E6EA /* GetWallOperation.swift in Sources */,
 				895B79011DE4B48400A12DC5 /* ACMessagesViewController.swift in Sources */,
 				89D197B51DE09C410042425C /* ACNewsImage.swift in Sources */,
 				894AA10A1DE96A50009BB555 /* ACCellText.swift in Sources */,
@@ -873,7 +877,7 @@
 				894AA10E1DE96B44009BB555 /* ACCellImage.swift in Sources */,
 				89143A7B1DD4DDA400AD4985 /* ACNewsTableViewCell_3.swift in Sources */,
 				8945BA0A1E01BA9400D86455 /* ACDialogTableViewCell.swift in Sources */,
-				897AB29C1E1A6BA300A22887 /* AccountGetOperation.swift in Sources */,
+				897AB29C1E1A6BA300A22887 /* GetAccountInfoOperation.swift in Sources */,
 				895B79161DE7523800A12DC5 /* ACAccount.swift in Sources */,
 				89D197B71DE09C7D0042425C /* ACNewsHeader.swift in Sources */,
 				89D197B91DE09CF80042425C /* ACNewsFooter.swift in Sources */,

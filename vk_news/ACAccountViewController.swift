@@ -89,12 +89,16 @@ extension ACAccountViewController
 {
     func getAccount ()
     {
-        ACAccountManager.getAccountItems(success: {
-            DispatchQueue.main.async
-            {
-                    self.tableView.reloadData()
-            }
-            }) { ( errorCode ) in
+        
+        ACAccountManager.getAccountItems(success_info: { 
+            
+            self.tableView.reloadData()
+            
+        }, success_wall: {
+            
+            self.tableView.reloadData()
+
+        }) { (errorCode) in
         }
     }
 }
